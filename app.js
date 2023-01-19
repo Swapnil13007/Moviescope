@@ -4,7 +4,6 @@ let backdropImagesArr = [];
 let slideMovieNames = [];
 let slideMovieOverview = [];
 
-let homeMovies
 
 const searchBox = document.getElementById("search");
 const searchBtn = document.getElementById("search-btn");
@@ -76,7 +75,7 @@ const moveSlideToLeft = () => {
 const autoChangeSlide = () => {
   setInterval(moveSlideToRight, 3000);
 }
-//autoChangeSlide();
+autoChangeSlide();
 
 
 const setTrending = (movies, shows) => {
