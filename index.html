@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/b26051f063.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <title>Moviescope</title>
+</head>
+
+<body>
+
+  <nav class="main-nav">
+    <h1 class="main-nav_title">Moviescope</h1>
+    <form action="#" class="main-search_box">
+      <input type="text" id="search" name="search" placeholder="Search Movies/TV Shows">
+      <button id="search-btn"><img src="img/search.svg" button>
+    </form>
+  </nav>
+
+  <div class="back-images-container">
+    <div class="front-images-container">
+
+      <button class="img-btn" id="img-left"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="img-btn" id="img-right"><i class="fa-solid fa-chevron-right"></i></button>
+      <!-- Example Html
+        <div class="front-image"
+        style="background-image: url('https://image.tmdb.org/t/p/w342/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg');">
+      </div> -->
+
+    </div>
+
+    <div class="slide-movie-info">
+      <div class="slide-movie-title"></div>
+      <div class="slide-movie-overview"></div>
+    </div>
+  </div>
+
+  <section class="trending-movies-container">
+    <div class="trending-movies-header"><a href="./pages/trendingMovies.html">Trending Movies<i
+          class="fa-solid fa-chevron-right"></i></a></div>
+    <div class="trending-movies">
+      <!-- <div class="trending-movies_img" style="background-image: url('https://image.tmdb.org/t/p/w342/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg');">
+      </div> -->
+
+    </div>
+  </section>
+
+  <section class="trending-series-container">
+    <div class="trending-series-header"><a href="./pages/trendingShows.html">Trending Shows<i
+          class="fa-solid fa-chevron-right"></i></a></div>
+
+    <div class="trending-series">
+      <!-- <div class="trending-series_img"
+        style="background-image: url('https://image.tmdb.org/t/p/w342/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg');"></div> -->
+
+    </div>
+  </section>
+
+  <footer class="main-footer">
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

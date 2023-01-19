@@ -1,0 +1,210 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.back-images-container {
+  margin-top: 10vh;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background 0.4s ease-in-out;
+}
+
+.back-images-container::before {
+  content: '';
+  height: 70%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.front-images-container {
+  position: relative;
+  width: 20%;
+  min-width: 240px;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-btn {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  z-index: 2;
+  top: 50%;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.img-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+}
+
+.img-btn:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+#img-left {
+  right: 102%;
+}
+
+#img-right {
+  left: 102%;
+}
+
+.slide-movie-info {
+  height: 75%;
+  width: 50%;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.slide-movie-title {
+  width: 95%;
+  height: 25%;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  font-size: 2rem;
+  font-family: var(--ubuntu-font);
+  color: var(--nav-color-contrast);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.slide-movie-overview {
+  width: 95%;
+  height: 60%;
+  overflow: hidden;
+  font-size: 1.1rem;
+  color: var(--nav-color-contrast);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.front-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 12px;
+  z-index: 1;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.active {
+  opacity: 1;
+}
+
+.trending-movies-container,
+.trending-series-container {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--body-color);
+  /* background-color: brown; */
+}
+
+.trending-movies-header,
+.trending-series-header {
+  width: 100%;
+  height: 10%;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  background-color: #F8ECFB;
+  /* background-color: aqua; */
+}
+
+.trending-movies-header a,
+.trending-series-header a {
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-family: var(--ubuntu-font);
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+}
+
+.trending-movies-header a:hover,
+.trending-series-header a:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.trending-movies-header a:active,
+.trending-series-header a:active {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.trending-movies-header i,
+.trending-series-header i {
+  margin-left: 8px;
+  font-size: 1.1rem;
+  transform: translateY(-15%);
+}
+
+.trending-movies,
+.trending-series {
+  width: 100%;
+  height: 85%;
+  max-height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background-color: aqua; */
+}
+
+.trending-movies_img,
+.trending-series_img {
+  cursor: pointer;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 20rem;
+  width: calc(20rem/1.5);
+  transition: transform ease-in-out 0.1s, box-shadow ease-in 0.1s;
+}
+
+.trending-movies_img:hover,
+.trending-series_img:hover {
+  box-shadow: 4px 4px 6px var(--shadow-color);
+  transform: scale(101%);
+}
+
+.trending-movies_img:active,
+.trending-series_img:active {
+  box-shadow: 4px 4px 2px var(--shadow-color);
+  transform: scale(99%);
+}
