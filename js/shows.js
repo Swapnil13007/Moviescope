@@ -3,6 +3,9 @@ let pageNo = 1;
 let totalPages = 10000;
 history.scrollRestoration = 'manual';
 
+const searchBox = document.getElementById("search");
+const searchBtn = document.getElementById("search-btn");
+
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
 
@@ -30,12 +33,21 @@ const setTrendingShows = (shows) => {
     if (show.poster_path) {
       let showImgs = `https://image.tmdb.org/t/p/w342${show.poster_path}`;
 
+      const newShowAnchor = document.createElement('a');
       const newShowDiv = document.createElement('div');
+
+      newShowAnchor.href = "./details.html";
+      newShowAnchor.appendChild(newShowDiv);
+
       newShowDiv.classList.add("result");
+      newShowDiv.id = show.id;
       newShowDiv.style.backgroundImage = `url(${showImgs})`;
-      showsContainer.appendChild(newShowDiv);
+      showsContainer.appendChild(newShowAnchor);
     }
   });
+
+  const showImgs = document.querySelectorAll(".result");
+  getShowDetails(showImgs);
 }
 const getTrendingShows = async () => {
   if (pageNo > 0 && pageNo < totalPages) {
@@ -52,6 +64,17 @@ const getTrendingShows = async () => {
   }
 }
 getTrendingShows();
+
+
+const getShowDetails = (imgs) => {
+  imgs.forEach((img) => {
+    img.addEventListener("click", (evt) => {
+      // evt.preventDefault();
+      sessionStorage.setItem("showId", evt.target.id);
+      sessionStorage.removeItem("movId");
+    })
+  });
+}
 
 nextBtn.addEventListener("click", (evt) => {
   pageNo++;
@@ -71,4 +94,8 @@ prevBtn.addEventListener("click", (evt) => {
     getTrendingShows();
     window.scrollTo(0, 0);
   }
+})
+
+searchBtn.addEventListener("click", (evt) => {
+  sessionStorage.setItem("movieName", searchBox.value);
 })

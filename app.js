@@ -1,9 +1,9 @@
+
 const APIKey = "93ac677313f294316aab34b8d4ec8917";
 let activeImgNo = 0;
 let backdropImagesArr = [];
 let slideMovieNames = [];
 let slideMovieOverview = [];
-
 
 const searchBox = document.getElementById("search");
 const searchBtn = document.getElementById("search-btn");
@@ -21,6 +21,8 @@ const placeSlideImages = (data) => {
     backdropImagesArr.push(`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`);
     slideMovieNames.push(movie.title);
     slideMovieOverview.push(movie.overview);
+    // console.log(movie);
+    // sessionStorage.setItem("key", "value");
 
     const newImg = document.createElement('div');
     newImg.classList.add("front-image");
@@ -75,27 +77,43 @@ const moveSlideToLeft = () => {
 const autoChangeSlide = () => {
   setInterval(moveSlideToRight, 3000);
 }
-autoChangeSlide();
+//autoChangeSlide();
 
 
 const setTrending = (movies, shows) => {
   const moviesContainer = document.querySelector(".trending-movies");
   const showsContainer = document.querySelector(".trending-series");
+
   for (let i = 0; i < 5; i++) {
     let movImgs = `https://image.tmdb.org/t/p/w342${movies[i].poster_path}`;
     let showImgs = `https://image.tmdb.org/t/p/w342${shows[i].poster_path}`;
 
+    const newMovAnchor = document.createElement('a');
     const newMovDiv = document.createElement('div');
+
+    newMovAnchor.href = "./pages/details.html";
+    newMovAnchor.appendChild(newMovDiv);
+
     newMovDiv.classList.add("trending-movies_img");
+    newMovDiv.id = movies[i].id;
     newMovDiv.style.backgroundImage = `url(${movImgs})`;
-    moviesContainer.appendChild(newMovDiv);
+    moviesContainer.appendChild(newMovAnchor);
 
+    const newShowAnchor = document.createElement('a');
     const newShowDiv = document.createElement('div');
-    newShowDiv.classList.add("trending-series_img");
-    newShowDiv.style.backgroundImage = `url(${showImgs})`;
-    showsContainer.appendChild(newShowDiv);
 
+    newShowAnchor.href = "./pages/details.html";
+    newShowAnchor.appendChild(newShowDiv);
+
+    newShowDiv.classList.add("trending-series_img");
+    newShowDiv.id = shows[i].id;
+    newShowDiv.style.backgroundImage = `url(${showImgs})`;
+    showsContainer.appendChild(newShowAnchor);
   }
+  const movImgs = document.querySelectorAll(".trending-movies_img");
+  const showImgs = document.querySelectorAll(".trending-series_img");
+  getMovDetails(movImgs);
+  getShowDetails(showImgs);
 }
 const getHomeMoviesShows = async () => {
   let movieApiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${APIKey}`;
@@ -122,28 +140,28 @@ imgRight.addEventListener("click", () => {
   moveSlideToRight();
 })
 
-// console.log(backdropImagesArr);
-// console.log(slideMovieNames);
-// console.log(slideMovieOverview);
 
-const addResult = (data) => {
-  // console.log(typeof (data.Poster))
-  // console.log(resultImg[0].append)
-  resultImg[0].innerHTML += `<div class="main-result_img" style="background-image: url('${data.Poster}');"></div>`
+const getMovDetails = (imgs) => {
+  imgs.forEach((img) => {
+    img.addEventListener("click", (evt) => {
+      // evt.preventDefault();
+      sessionStorage.setItem("movId", evt.target.id);
+      sessionStorage.removeItem("showId");
+    })
+  });
 }
-const callAPI = async (api) => {
-  try {
-    const res = await axios.get(api);
-    // console.log(res.data.results);
-    // addResult(res.data);
-  }
-  catch (err) {
-    console.log(err);
-  }
+
+const getShowDetails = (imgs) => {
+  imgs.forEach(img => {
+    img.addEventListener("click", (evt) => {
+      // evt.preventDefault();
+      sessionStorage.setItem("showId", evt.target.id);
+      sessionStorage.removeItem("movId");
+    })
+  });
 }
+
+
 searchBtn.addEventListener("click", (evt) => {
-  evt.preventDefault();
-  // console.dir(searchBox.value);
-  let API = `https://api.themoviedb.org/3/discover/movie?api_key=${APIKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
-  callAPI(API);
+  sessionStorage.setItem("movieName", searchBox.value);
 })

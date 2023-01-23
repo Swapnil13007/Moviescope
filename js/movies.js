@@ -3,6 +3,9 @@ let pageNo = 1;
 let totalPages = 10000;
 history.scrollRestoration = 'manual';
 
+const searchBox = document.getElementById("search");
+const searchBtn = document.getElementById("search-btn");
+
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
 
@@ -30,12 +33,20 @@ const setTrendingMovies = (movies) => {
     if (movie.poster_path) {
       let movImgs = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
 
+      const newMovAnchor = document.createElement('a');
       const newMovDiv = document.createElement('div');
+
+      newMovAnchor.href = "./details.html";
+      newMovAnchor.appendChild(newMovDiv);
+
       newMovDiv.classList.add("result");
+      newMovDiv.id = movie.id;
       newMovDiv.style.backgroundImage = `url(${movImgs})`;
-      moviesContainer.appendChild(newMovDiv);
+      moviesContainer.appendChild(newMovAnchor);
     }
   });
+  const movImgs = document.querySelectorAll(".result");
+  getMovDetails(movImgs);
 }
 
 const getTrendingMovies = async () => {
@@ -55,6 +66,16 @@ const getTrendingMovies = async () => {
 getTrendingMovies();
 
 
+const getMovDetails = (imgs) => {
+  imgs.forEach((img) => {
+    img.addEventListener("click", (evt) => {
+      // evt.preventDefault();
+      sessionStorage.setItem("movId", evt.target.id);
+      sessionStorage.removeItem("showId");
+    })
+  });
+}
+
 nextBtn.addEventListener("click", (evt) => {
   pageNo++;
   if (pageNo <= totalPages) {
@@ -73,4 +94,8 @@ prevBtn.addEventListener("click", (evt) => {
     getTrendingMovies();
     window.scrollTo(0, 0);
   }
+})
+
+searchBtn.addEventListener("click", (evt) => {
+  sessionStorage.setItem("movieName", searchBox.value);
 })
