@@ -31,16 +31,16 @@
   background-size: cover;
   cursor: pointer;
   border-radius: 10px;
-  transition: transform ease-in-out 0.1s, box-shadow ease-in 0.1s;
+  transition: transform ease-out 0.1s, box-shadow ease-out 0.1s;
 }
 
 .result:hover {
-  box-shadow: 4px 4px 4px var(--shadow-color);
+  box-shadow: 4px 4px 16px var(--shadow-color);
   transform: scale(101%);
 }
 
 .result:active {
-  box-shadow: 4px 4px 2px var(--shadow-color);
+  box-shadow: none;
   transform: scale(99%);
 }
 

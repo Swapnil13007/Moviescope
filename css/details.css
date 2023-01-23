@@ -47,10 +47,11 @@
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .name {
-  height: 20%;
+  height: 25%;
   width: 97%;
   color: white;
   display: flex;

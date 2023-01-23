@@ -8,11 +8,12 @@
 }
 
 :root {
-  --nav-color: #6B2262;
+  --nav-color: #4E1D77;
+  --nav-color2: #D395F2;
   --nav-color-contrast: #F8ECFB;
-  --footer-color: #180339;
+  --footer-color: #020117;
   --body-color: #F8ECFB;
-  --shadow-color: #B872AF;
+  --shadow-color: #3A373B;
   --ubuntu-font: 'Ubuntu',
     sans-serif;
   /* --body-color: #B872AF;
@@ -33,7 +34,8 @@ body {
   position: fixed;
   top: 0;
   z-index: 10;
-  background-color: var(--nav-color);
+  /* background-color: var(--nav-color); */
+  background: linear-gradient(90deg, var(--nav-color), var(--nav-color2));
   padding: 0rem 1rem;
   width: 100%;
   height: 10%;
@@ -58,7 +60,7 @@ body {
   display: flex;
   align-items: center;
   background-color: var(--nav-color-contrast);
-  border: 1.5px solid var(--shadow-color);
+  /* border: 1.5px solid var(--shadow-color); */
   border-radius: 0.4rem;
 }
 
@@ -81,11 +83,16 @@ body {
 #search-btn {
   background-color: var(--nav-color-contrast);
   height: 100%;
-  padding: 0.3rem;
-  border-width: 0 0 0 1.5px;
-  border-color: var(--shadow-color);
+  padding: 0.4rem;
+  border: none;
+  /* border-width: 1px; */
+  /* border-color: var(--shadow-color); */
   border-radius: inherit;
   cursor: pointer;
+}
+
+#search-btn:hover {
+  transform: scale(100%);
 }
 
 #search-btn:active {

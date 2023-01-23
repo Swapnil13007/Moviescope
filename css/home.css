@@ -194,17 +194,17 @@ body {
   background-size: cover;
   height: 56vh;
   width: 18vw;
-  transition: transform ease-in-out 0.1s, box-shadow ease-in 0.1s;
+  transition: transform ease-in-out 0.1s, box-shadow ease-out 0.1s;
 }
 
 .trending-movies_img:hover,
 .trending-series_img:hover {
-  box-shadow: 4px 4px 6px var(--shadow-color);
+  box-shadow: 4px 4px 16px var(--shadow-color);
   transform: scale(101%);
 }
 
 .trending-movies_img:active,
 .trending-series_img:active {
-  box-shadow: 4px 4px 2px var(--shadow-color);
+  box-shadow: none;
   transform: scale(99%);
 }
