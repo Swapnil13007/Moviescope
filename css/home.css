@@ -252,7 +252,7 @@ body {
 
 }
 
-@media(max-width:40rem) and (min-width:27rem) {
+@media only screen and (max-width:40rem) and (min-width:27rem) {
   .front-images-container {
     height: 75.7%;
   }
