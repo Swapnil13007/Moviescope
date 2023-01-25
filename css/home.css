@@ -286,6 +286,7 @@ body {
   .front-images-container {
     width: 33.85%;
     height: 47.6%;
+    min-height: 216px;
     min-width: 144px;
   }
 
@@ -334,6 +335,7 @@ body {
   .trending-series_img {
     height: 52.6vh;
     width: 47vw;
+    max-height: 264px;
     min-width: 176px;
     max-width: 176px;
   }
