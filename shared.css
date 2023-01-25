@@ -99,10 +99,72 @@ body {
   transform: scale(90%);
 }
 
-
-
 .main-footer {
   height: 15%;
   width: 100%;
   background-color: var(--footer-color);
+}
+
+@media(max-width:48rem) {
+  .main-nav {
+    padding-left: 0rem 0.6rem;
+
+  }
+
+  .main-nav h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-search_box {
+    height: 60%;
+    min-width: 256px;
+  }
+
+  #search {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  #search-btn {
+    padding: 0.4rem;
+  }
+
+  #search-btn img {
+    height: 100%;
+  }
+}
+
+@media(max-width:27rem) {
+  .main-nav {
+    padding-left: 0.6rem;
+    padding-right: 0.4rem;
+  }
+
+  .main-nav h1 {
+    font-size: 1.4rem;
+  }
+
+  .main-search_box {
+    height: 60%;
+    min-width: 192px;
+  }
+
+  #search {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  #search-btn {
+    padding: 0.3rem 0.1rem;
+  }
+
+  #search-btn img {
+    height: 100%;
+  }
+}
+
+@media(max-width:20rem) {
+  .main-search_box {
+    min-width: 160px;
+  }
 }

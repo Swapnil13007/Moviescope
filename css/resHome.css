@@ -1,0 +1,151 @@
+@media(max-width:48rem) {
+  .front-images-container {
+    height: 66.5%;
+    width: 27.2%;
+    min-width: 208px;
+  }
+
+  .slide-movie-info {
+    height: 80%;
+    width: 55%;
+  }
+
+  .slide-movie-title {
+    height: 20%;
+  }
+
+  .slide-movie-overview {
+    height: 70%;
+  }
+
+  .trending-movies-container,
+  .trending-series-container {
+    height: 48%;
+  }
+
+
+  .trending-movies a:nth-last-of-type(5),
+  .trending-series a:nth-last-of-type(5) {
+    display: none;
+  }
+
+  .trending-movies_img,
+  .trending-series_img {
+    height: 39vh;
+    width: 47vw;
+    min-width: 176px;
+    max-width: 176px;
+  }
+
+}
+
+@media(max-width:40rem) and (min-width:27rem) {
+  .front-images-container {
+    height: 75.7%;
+  }
+
+  .img-btn {
+    width: 4rem;
+    top: 107%;
+  }
+
+  #img-left {
+    right: 55%;
+  }
+
+  #img-right {
+    left: 55%;
+  }
+
+}
+
+@media(max-width:27rem) {
+  .back-images-container {
+    height: 90%;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .back-images-container::before {
+    height: 90%;
+  }
+
+  .front-images-container {
+    width: 33.85%;
+    height: 47.6%;
+    min-width: 144px;
+  }
+
+  .img-btn {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .slide-movie-info {
+    height: 45%;
+    width: 90%;
+  }
+
+  .slide-movie-title {
+    font-size: 1.4rem;
+  }
+
+  .slide-movie-overview {
+    height: 70%;
+    font-size: 0.75rem;
+  }
+
+  .trending-movies-container,
+  .trending-series-container {
+    height: 115%;
+  }
+
+  .trending-movies-header a,
+  .trending-series-header a {
+    font-size: 1.1rem;
+  }
+
+  .trending-movies-header i,
+  .trending-series-header i {
+    margin-left: 4px;
+    font-size: 0.7rem;
+  }
+
+  .trending-movies,
+  .trending-series {
+    flex-direction: column;
+  }
+
+
+  .trending-movies_img,
+  .trending-series_img {
+    height: 52.6vh;
+    width: 47vw;
+    min-width: 176px;
+    max-width: 176px;
+  }
+
+}
+
+@media(max-width:20rem) {
+  .slide-movie-title {
+    font-size: 1.3rem;
+  }
+
+  .slide-movie-overview {
+    height: 70%;
+    font-size: 0.7rem;
+  }
+
+  .trending-movies-container,
+  .trending-series-container {
+    height: 100%;
+  }
+
+  .trending-movies_img,
+  .trending-series_img {
+    height: 43vh;
+    width: 45vw;
+    min-width: 144px;
+  }
+}
