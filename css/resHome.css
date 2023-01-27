@@ -122,8 +122,8 @@
    .front-images-container {
      height: calc(37.6vw / 0.6666);
      width: 37.6vw;
-     min-width: 10rem;
-     min-height: 15rem;
+     min-width: 12rem;
+     min-height: 18rem;
    }
 
    .slide-movie-info {
@@ -146,9 +146,10 @@
 
    .img-btn {
      top: 50%;
-     width: 1.6rem;
-     height: 1.6rem;
+     width: 2.4rem;
+     height: 2.4rem;
    }
+
 
    #img-left {
      right: 105%;
@@ -206,10 +207,7 @@
      font-size: 0.95rem;
    }
 
-   .img-btn {
-     width: 2.4rem;
-     height: 2.4rem;
-   }
+
 
    /* .trending-movies-container,
   .trending-series-container {
