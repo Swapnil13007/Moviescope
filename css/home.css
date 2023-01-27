@@ -8,7 +8,7 @@ body {
 }
 
 .back-images-container {
-  width: 100vw;
+  width: 100%;
   height: 70vh;
   display: flex;
   justify-content: space-evenly;
@@ -17,6 +17,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   transition: background 0.4s ease-in-out;
+  overflow: hidden;
 }
 
 .back-images-container::before {
