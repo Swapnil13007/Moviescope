@@ -14,8 +14,8 @@
      width: 27.2vw;
      min-width: 13rem;
      min-height: 19.5rem;
-     max-width: 17rem;
-     max-height: 25.5rem;
+     max-width: 16rem;
+     max-height: 24rem;
    }
 
    .slide-movie-info {
@@ -36,15 +36,15 @@
      font-size: 0.9rem;
    }
 
-   .trending-movies a:nth-last-of-type(5),
+   /* .trending-movies a:nth-last-of-type(5),
    .trending-series a:nth-last-of-type(5) {
      display: none;
-   }
+   } */
 
    .trending-movies_img,
    .trending-series_img {
-     height: calc(23vw/0.6666);
-     width: 23vw;
+     height: calc(18.25vw/0.6666);
+     width: 18.25vw;
    }
  }
 
@@ -94,6 +94,17 @@
      /* height: 75%; */
      flex: 2;
      font-size: 0.8rem;
+   }
+
+   .trending-movies a:nth-last-of-type(5),
+   .trending-series a:nth-last-of-type(5) {
+     display: none;
+   }
+
+   .trending-movies_img,
+   .trending-series_img {
+     min-height: 12rem;
+     min-width: 8rem;
    }
  }
 
