@@ -1,8 +1,19 @@
-@media(max-width:48rem) {
+@media(max-width:48rem) and (min-height:32rem) {
+
+  .back-images-container {
+    height: 70vh;
+    max-height: 27.5rem;
+  }
+
+  .back-images-container::before {
+    height: 70vh;
+    max-height: 27.5rem;
+  }
+
   .front-images-container {
-    height: 66.5%;
-    width: 27.2%;
-    min-width: 208px;
+    height: calc(27.2vw/0.6666);
+    width: 27.2vw;
+    min-width: 13rem;
   }
 
   .slide-movie-info {
@@ -11,18 +22,14 @@
   }
 
   .slide-movie-title {
-    height: 20%;
+    height: 25%;
+    font-size: 1.6rem;
   }
 
   .slide-movie-overview {
     height: 70%;
+    font-size: 1rem;
   }
-
-  .trending-movies-container,
-  .trending-series-container {
-    height: 48%;
-  }
-
 
   .trending-movies a:nth-last-of-type(5),
   .trending-series a:nth-last-of-type(5) {
@@ -31,22 +38,33 @@
 
   .trending-movies_img,
   .trending-series_img {
-    height: 39vh;
-    width: 47vw;
-    min-width: 176px;
-    max-width: 176px;
+    height: calc(23vw/0.6666);
+    width: 23vw;
+    /* min-width: 11rem;
+          max-width: 11rem; */
   }
 
 }
 
 @media(max-width:40rem) and (min-width:27rem) {
+  .back-images-container {
+    height: 70%;
+  }
+
+  .back-images-container::before {
+    height: 70%;
+  }
+
   .front-images-container {
-    height: 75.7%;
+    height: calc(30.6vw/0.6666);
+    width: 30.6vw;
+    min-width: 11rem;
   }
 
   .img-btn {
+    height: 1.8rem;
     width: 4rem;
-    top: 107%;
+    top: 108%;
   }
 
   #img-left {
@@ -57,28 +75,37 @@
     left: 55%;
   }
 
+  .slide-movie-info {
+    height: 80%;
+    width: 60%;
+  }
+
+  .slide-movie-title {
+    height: 20%;
+    font-size: 1.6rem;
+  }
+
+  .slide-movie-overview {
+    height: 75%;
+    font-size: 0.9rem;
+  }
 }
 
-@media(max-width:27rem) {
+@media(max-width:27rem) and (min-height:32rem) {
   .back-images-container {
-    height: 90%;
+    min-height: calc(100vh - 3.125rem);
     flex-direction: column;
     justify-content: space-evenly;
   }
 
   .back-images-container::before {
-    height: 90%;
+    min-height: calc(100vh - 3.125rem);
   }
 
   .front-images-container {
-    width: 33.85%;
-    height: 47.6%;
-    min-width: 144px;
-  }
-
-  .img-btn {
-    width: 1.6rem;
-    height: 1.6rem;
+    height: calc(37.6vw / 0.6666);
+    width: 37.6vw;
+    min-width: 0;
   }
 
   .slide-movie-info {
@@ -87,15 +114,70 @@
   }
 
   .slide-movie-title {
+    height: 25%;
+    align-items: center;
     font-size: 1.4rem;
   }
 
   .slide-movie-overview {
     height: 70%;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 
-  .trending-movies-container,
+  .img-btn {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .trending-movies-header a,
+  .trending-series-header a {
+    font-size: 1.4rem;
+  }
+
+  .trending-movies-header i,
+  .trending-series-header i {
+    margin-left: 4px;
+    font-size: 0.7rem;
+  }
+
+  .trending-movies,
+  .trending-series {
+    height: calc((45.2vw / 0.6666) * 2.1);
+  }
+
+  .trending-movies_img,
+  .trending-series_img {
+    height: calc(45.2vw / 0.6666);
+    width: 45.2vw;
+    /* min-width: 176px;
+    max-width: 176px; */
+  }
+}
+
+@media(max-width:27rem) and (min-height:48rem) {
+
+  .front-images-container {
+    height: calc(56.5vw / 0.6666);
+    width: 56.5vw;
+  }
+
+  .slide-movie-info {
+    height: 45%;
+    width: 90%;
+  }
+
+  .slide-movie-title {
+    height: 25%;
+    align-items: center;
+    font-size: 1.7rem;
+  }
+
+  .slide-movie-overview {
+    height: 70%;
+    font-size: 1rem;
+  }
+
+  /* .trending-movies-container,
   .trending-series-container {
     height: 115%;
   }
@@ -109,25 +191,25 @@
   .trending-series-header i {
     margin-left: 4px;
     font-size: 0.7rem;
-  }
+  } */
 
-  .trending-movies,
+  /* .trending-movies,
   .trending-series {
     flex-direction: column;
-  }
+  } */
 
 
-  .trending-movies_img,
+  /* .trending-movies_img,
   .trending-series_img {
     height: 52.6vh;
     width: 47vw;
     min-width: 176px;
     max-width: 176px;
-  }
+  } */
 
 }
 
-@media(max-width:20rem) {
+/* @media(max-width:20rem) and (min-height:32rem) {
   .slide-movie-title {
     font-size: 1.3rem;
   }
@@ -148,4 +230,4 @@
     width: 45vw;
     min-width: 144px;
   }
-}
+} */
