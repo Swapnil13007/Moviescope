@@ -5,16 +5,15 @@ let backdropImagesArr = [];
 let slideMovieNames = [];
 let slideMovieOverview = [];
 
-const searchBox = document.getElementById("search");
-const searchBtn = document.getElementById("search-btn");
-const resultImg = document.getElementsByClassName("trending-movies");
-const backgroundSlide = document.querySelector(".back-images-container");
-const imgLeft = document.getElementById("img-left");
-const imgRight = document.getElementById("img-right");
-
+const searchBox = document.querySelector(".searchBox__input");
+const searchBtn = document.querySelector(".searchBox__btn");
+const resultImg = document.querySelector(".movies");
+const backgroundSlide = document.querySelector(".slide");
+const imgLeft = document.querySelector(".frontImages__btn--left");
+const imgRight = document.querySelector(".frontImages__btn--right");
 
 const placeSlideImages = (data) => {
-  const slideContainer = document.querySelector(".front-images-container");
+  const slideContainer = document.querySelector(".frontImages");
   data.forEach(movie => {
     let frontImgUrl = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
 
@@ -24,17 +23,17 @@ const placeSlideImages = (data) => {
     // console.log(movie);
     // sessionStorage.setItem("key", "value");
 
-    const newImg = document.createElement('div');
-    newImg.classList.add("front-image");
-    newImg.style.backgroundImage = `url(${frontImgUrl})`;
+    const newImg = document.createElement('img');
+    newImg.classList.add("frontImages__img");
+    newImg.src = `${frontImgUrl}`;
     slideContainer.appendChild(newImg);
     // console.dir(newImg);
   });
 }
 const setSlides = (data) => {
-  const slides = document.querySelectorAll(".front-image");
-  const title = document.querySelector(".slide-movie-title");
-  const overview = document.querySelector(".slide-movie-overview");
+  const slides = document.querySelectorAll(".frontImages__img");
+  const title = document.querySelector(".info__title");
+  const overview = document.querySelector(".info__overview");
 
   slides[activeImgNo].classList.add("active");
   backgroundSlide.style.backgroundImage = `url(${backdropImagesArr[activeImgNo]})`;
@@ -57,7 +56,7 @@ const getSlideImages = async () => {
 getSlideImages();
 
 const moveSlideToRight = () => {
-  const slides = document.querySelectorAll(".front-image");
+  const slides = document.querySelectorAll(".frontImages__img");
   slides[activeImgNo].classList.remove("active");
   activeImgNo++;
   if (activeImgNo > slides.length - 1) {
@@ -66,7 +65,7 @@ const moveSlideToRight = () => {
   setSlides();
 }
 const moveSlideToLeft = () => {
-  const slides = document.querySelectorAll(".front-image");
+  const slides = document.querySelectorAll(".frontImages__img");
   slides[activeImgNo].classList.remove("active");
   activeImgNo--;
   if (activeImgNo < 0) {
@@ -81,8 +80,8 @@ const autoChangeSlide = () => {
 
 
 const setTrending = (movies, shows) => {
-  const moviesContainer = document.querySelector(".trending-movies");
-  const showsContainer = document.querySelector(".trending-series");
+  const moviesContainer = document.querySelector(".movies__container");
+  const showsContainer = document.querySelector(".series__container");
 
   for (let i = 0; i < 5; i++) {
     let movImgs = `https://image.tmdb.org/t/p/w342${movies[i].poster_path}`;
@@ -90,28 +89,38 @@ const setTrending = (movies, shows) => {
 
     const newMovAnchor = document.createElement('a');
     const newMovDiv = document.createElement('div');
+    const newMovImg = document.createElement('img');
+
+    newMovImg.src = movImgs;
 
     newMovAnchor.href = "./pages/details.html";
-    newMovAnchor.appendChild(newMovDiv);
+    newMovAnchor.appendChild(newMovImg);
 
-    newMovDiv.classList.add("trending-movies_img");
+    newMovDiv.classList.add("movies__image");
     newMovDiv.id = movies[i].id;
-    newMovDiv.style.backgroundImage = `url(${movImgs})`;
-    moviesContainer.appendChild(newMovAnchor);
+    newMovDiv.appendChild(newMovAnchor);
+
+    moviesContainer.appendChild(newMovDiv);
+
 
     const newShowAnchor = document.createElement('a');
     const newShowDiv = document.createElement('div');
+    const newShowImg = document.createElement('img');
+
+    newShowImg.src = showImgs;
 
     newShowAnchor.href = "./pages/details.html";
-    newShowAnchor.appendChild(newShowDiv);
+    newShowAnchor.appendChild(newShowImg);
 
-    newShowDiv.classList.add("trending-series_img");
+    newShowDiv.classList.add("series__image");
     newShowDiv.id = shows[i].id;
-    newShowDiv.style.backgroundImage = `url(${showImgs})`;
-    showsContainer.appendChild(newShowAnchor);
+    newShowDiv.appendChild(newShowAnchor);
+
+    showsContainer.appendChild(newShowDiv);
   }
-  const movImgs = document.querySelectorAll(".trending-movies_img");
-  const showImgs = document.querySelectorAll(".trending-series_img");
+  const movImgs = document.querySelectorAll(".movies__container");
+  const showImgs = document.querySelectorAll(".series__container");
+
   getMovDetails(movImgs);
   getShowDetails(showImgs);
 }
@@ -145,7 +154,7 @@ const getMovDetails = (imgs) => {
   imgs.forEach((img) => {
     img.addEventListener("click", (evt) => {
       // evt.preventDefault();
-      sessionStorage.setItem("movId", evt.target.id);
+      sessionStorage.setItem("movId", evt.target.parentElement.parentElement.id);
       sessionStorage.removeItem("showId");
     })
   });
@@ -155,7 +164,7 @@ const getShowDetails = (imgs) => {
   imgs.forEach(img => {
     img.addEventListener("click", (evt) => {
       // evt.preventDefault();
-      sessionStorage.setItem("showId", evt.target.id);
+      sessionStorage.setItem("showId", evt.target.parentElement.parentElement.id);
       sessionStorage.removeItem("movId");
     })
   });
