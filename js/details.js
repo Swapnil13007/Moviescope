@@ -1,6 +1,6 @@
 const APIKey = "93ac677313f294316aab34b8d4ec8917";
-const searchBox = document.getElementById("search");
-const searchBtn = document.getElementById("search-btn");
+const searchBox = document.querySelector(".searchBox__input");
+const searchBtn = document.querySelector(".searchBox__btn");
 
 searchBtn.addEventListener("click", (evt) => {
   sessionStorage.setItem("movieName", searchBox.value);

@@ -12,13 +12,20 @@
 </head>
 
 <body>
-  <nav class="main-nav">
-    <h1 class="main-nav_title"><a href="../index.html">Moviescope</a></h1>
-    <form action="../pages/search.html" class="main-search_box">
-      <input type="text" id="search" name="search" placeholder="Search Movies/TV Shows">
-      <button id="search-btn"><img src="../img/search.svg" button>
-    </form>
-  </nav>
+
+  <header class="header">
+    <nav class="nav">
+      <h1 class="nav__title">
+        <a href="../index.html" class="nav__link">Moviescope</a>
+      </h1>
+      <form action="../pages/search.html" class="searchBox">
+        <input type="text" class="searchBox__input" name="search" placeholder="Search Movies/TV Shows">
+        <button class="searchBox__btn">
+          <img src="../img/search.svg" class="searchBox__img">
+        </button>
+      </form>
+    </nav>
+  </header>
 
   <div class="title">
     <h1>Trending Shows</h1>

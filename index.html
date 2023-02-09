@@ -4,67 +4,82 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport"
-    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,width=device-width, height=device-height" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/b26051f063.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="shared.css">
   <link rel="stylesheet" href="./css/home.css">
-  <link rel="stylesheet" href="./css/resHome.css">
   <title>Moviescope</title>
 </head>
 
 <body>
 
-  <nav class="main-nav">
-    <h1 class="main-nav_title">Moviescope</h1>
-    <form action="./pages/search.html" class="main-search_box">
-      <input type="text" id="search" name="search" placeholder="Search Movies/TV Shows">
-      <button id="search-btn"><img src="img/search.svg" button>
-    </form>
-  </nav>
+  <header class="header">
+    <nav class="nav">
+      <h1 class="nav__title">Moviescope</h1>
+      <form action="./pages/search.html" class="searchBox">
+        <input type="text" class="searchBox__input" name="search" placeholder="Search Movies/TV Shows">
+        <button class="searchBox__btn">
+          <img src="img/search.svg" class="searchBox__img">
+        </button>
+      </form>
+    </nav>
+  </header>
 
-  <main>
-    <div class="back-images-container">
-      <div class="front-images-container">
+  <main class="main">
 
-        <button class="img-btn" id="img-left"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="img-btn" id="img-right"><i class="fa-solid fa-chevron-right"></i></button>
+    <section class="slide">
+      <div class="frontImages">
+        <button class="frontImages__btn frontImages__btn--left">
+          <i class="fa-solid fa-chevron-left frontImages__btnIcon"></i>
+        </button>
+        <button class="frontImages__btn frontImages__btn--right">
+          <i class="fa-solid fa-chevron-right frontImages__btnIcon"></i>
+        </button>
         <!-- Example Html
-        <div class="front-image"
+        <div class="frontImages__img"
         style="background-image: url('https://image.tmdb.org/t/p/w342/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg');">
       </div> -->
       </div>
-
-      <div class="slide-movie-info">
-        <div class="slide-movie-title"></div>
-        <div class="slide-movie-overview"></div>
-      </div>
-    </div>
-
-    <section class="trending-movies-container">
-      <div class="trending-movies-header"><a href="./pages/trendingMovies.html">Trending Movies<i
-            class="fa-solid fa-chevron-right"></i></a></div>
-      <div class="trending-movies">
-        <!-- <div class="trending-movies_img" style="background-image: url('https://image.tmdb.org/t/p/w342/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg');">
-      </div> -->
-
-
+      <div class="info">
+        <div class="info__title"></div>
+        <div class="info__overview"></div>
       </div>
     </section>
 
-    <section class="trending-series-container">
-      <div class="trending-series-header"><a href="./pages/trendingShows.html">Trending Shows<i
-            class="fa-solid fa-chevron-right"></i></a></div>
+    <section class="movies">
+      <div class="movies__header">
+        <a href="./pages/trendingMovies.html" class="movies__link">Trending Movies
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+      </div>
+      <div class="movies__container">
+        <!-- 
+          <a href="./pages/details.html">
+            <div class="movies__image" id="505642">
+              <img src="https://image.tmdb.org/t/p/w342/sv1xJUazXeYqALzczSZ3O6nkH75.jpg">
+            </div>
+          </a> 
+        -->
+      </div>
+    </section>
 
-      <div class="trending-series">
-        <!-- <div class="trending-series_img"
+    <section class="series">
+      <div class="series__header">
+        <a href="./pages/trendingShows.html" class="series__link">Trending Shows
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+      </div>
+
+      <div class="series__container">
+        <!-- <div class="series__image"
         style="background-image: url('https://image.tmdb.org/t/p/w342/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg');"></div> -->
 
       </div>
     </section>
+
   </main>
 
-  <footer class="main-footer">
+  <footer class="footer">
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
