@@ -188,13 +188,14 @@
 .series__image {
   cursor: pointer;
   /* overflow: hidden; */
-  width: 19%;
+  width: 20%;
 }
 
 .movies__image img,
 .series__image img {
   border-radius: 10px;
-  width: 100%;
+  width: 95%;
+  height: 97%;
   transition: transform ease-in-out 0.1s, box-shadow ease-out 0.1s;
 }
 
@@ -221,18 +222,20 @@
 
   .movies__image,
   .series__image {
-    width: 24%;
+    width: 25%;
   }
 
-  .movies__image:last-of-type,
-  .series__image:last-of-type {
+  .movies__image:nth-of-type(9),
+  .movies__image:nth-of-type(10),
+  .series__image:nth-of-type(9),
+  .series__image:nth-of-type(10) {
     display: none;
   }
 
-  .movies__image img:last-of-type,
+  /* .movies__image img:last-of-type,
   .series__image img:last-of-type {
     margin-top: 1rem;
-  }
+  } */
 }
 
 /* 768px */
@@ -270,15 +273,21 @@
     display: none;
   }
 
-  .movies__container,
+  /* .movies__container,
   .series__container {
     align-items: center;
-  }
+  } */
+
 
   .movies__image,
   .series__image {
-    width: 47%;
+    width: 50%;
   }
+
+  /* .movies__image img,
+  .series__image img {
+    height: 50%;
+  } */
 }
 
 @media(max-width:27rem) {

@@ -76,14 +76,14 @@ const moveSlideToLeft = () => {
 const autoChangeSlide = () => {
   setInterval(moveSlideToRight, 3000);
 }
-autoChangeSlide();
+//autoChangeSlide();
 
 
 const setTrending = (movies, shows) => {
   const moviesContainer = document.querySelector(".movies__container");
   const showsContainer = document.querySelector(".series__container");
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     let movImgs = `https://image.tmdb.org/t/p/w342${movies[i].poster_path}`;
     let showImgs = `https://image.tmdb.org/t/p/w342${shows[i].poster_path}`;
 
