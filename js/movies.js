@@ -3,8 +3,8 @@ let pageNo = 1;
 let totalPages = 10000;
 history.scrollRestoration = 'manual';
 
-const searchBox = document.getElementById("search");
-const searchBtn = document.getElementById("search-btn");
+const searchBox = document.querySelector(".searchBox__input");
+const searchBtn = document.querySelector(".searchBox__btn");
 
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
@@ -22,12 +22,12 @@ const updateBtn = () => {
 updateBtn();
 
 const removeResults = () => {
-  const results = document.querySelector(".results-container");
+  const results = document.querySelector(".results__container");
   results.innerHTML = "";
 }
 
 const setTrendingMovies = (movies) => {
-  const moviesContainer = document.querySelector(".results-container");
+  const moviesContainer = document.querySelector(".results__container");
 
   movies.forEach(movie => {
     if (movie.poster_path) {
@@ -35,17 +35,21 @@ const setTrendingMovies = (movies) => {
 
       const newMovAnchor = document.createElement('a');
       const newMovDiv = document.createElement('div');
+      const newMovImg = document.createElement('img');
+
+      newMovImg.src = movImgs;
 
       newMovAnchor.href = "./details.html";
-      newMovAnchor.appendChild(newMovDiv);
+      newMovAnchor.appendChild(newMovImg);
 
-      newMovDiv.classList.add("result");
+      newMovDiv.classList.add("results__image");
       newMovDiv.id = movie.id;
-      newMovDiv.style.backgroundImage = `url(${movImgs})`;
-      moviesContainer.appendChild(newMovAnchor);
+      newMovDiv.appendChild(newMovAnchor);
+
+      moviesContainer.appendChild(newMovDiv);
     }
   });
-  const movImgs = document.querySelectorAll(".result");
+  const movImgs = document.querySelectorAll(".results__image");
   getMovDetails(movImgs);
 }
 
@@ -70,7 +74,7 @@ const getMovDetails = (imgs) => {
   imgs.forEach((img) => {
     img.addEventListener("click", (evt) => {
       // evt.preventDefault();
-      sessionStorage.setItem("movId", evt.target.id);
+      sessionStorage.setItem("movId", evt.target.parentElement.parentElement.id);
       sessionStorage.removeItem("showId");
     })
   });
