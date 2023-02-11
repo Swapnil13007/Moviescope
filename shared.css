@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800&display=swap');
 
+@keyframes L1 {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

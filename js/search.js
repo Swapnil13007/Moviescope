@@ -1,6 +1,6 @@
 
-const searchBox = document.getElementById("search");
-const searchBtn = document.getElementById("search-btn");
+const searchBox = document.querySelector(".searchBox__input");
+const searchBtn = document.querySelector(".searchBox__btn");
 const APIKey = "93ac677313f294316aab34b8d4ec8917";
 history.scrollRestoration = 'manual';
 
@@ -14,7 +14,7 @@ window.onload = () => {
 }
 
 const setSearchMovies = (movies) => {
-  const moviesContainer = document.querySelector(".results-container");
+  const moviesContainer = document.querySelector(".results__container");
 
   movies.forEach(movie => {
     if (movie.poster_path) {
@@ -22,18 +22,22 @@ const setSearchMovies = (movies) => {
 
       const newMovAnchor = document.createElement('a');
       const newMovDiv = document.createElement('div');
+      const newMovImg = document.createElement('img');
+
+      newMovImg.src = movImgs;
 
       newMovAnchor.href = "./details.html";
-      newMovAnchor.appendChild(newMovDiv);
+      newMovAnchor.appendChild(newMovImg);
 
-      newMovDiv.classList.add("result");
+      newMovDiv.classList.add("results__image");
       newMovDiv.id = movie.id;
       newMovDiv.attributes.value = movie.media_type;
-      newMovDiv.style.backgroundImage = `url(${movImgs})`;
-      moviesContainer.appendChild(newMovAnchor);
+      newMovDiv.appendChild(newMovAnchor);
+
+      moviesContainer.appendChild(newMovDiv);
     }
   });
-  const movImgs = document.querySelectorAll(".result");
+  const movImgs = document.querySelectorAll(".results__image");
   getMovDetails(movImgs);
 }
 
@@ -54,10 +58,10 @@ const getMovDetails = (imgs) => {
       // evt.preventDefault();
       console.dir(img.attributes.value);
       if (img.attributes.value === "movie") {
-        sessionStorage.setItem("movId", evt.target.id);
+        sessionStorage.setItem("movId", evt.target.parentElement.parentElement.id);
         sessionStorage.removeItem("showId");
       } else {
-        sessionStorage.setItem("showId", evt.target.id);
+        sessionStorage.setItem("showId", evt.target.parentElement.parentElement.id);
         sessionStorage.removeItem("movId");
       }
     })

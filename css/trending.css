@@ -15,14 +15,16 @@
 
 .title__heading {
   color: transparent;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: 0.8rem;
   text-align: center;
   font-family: var(--rubic-font);
   background: linear-gradient(90deg, var(--nav-color), var(--nav-color2));
   -webkit-background-clip: text;
+  animation: L1 1s ease;
 }
+
 
 .results__container {
   /* width: 100%; */
@@ -124,5 +126,9 @@
 @media(max-width:27rem) {
   .results__image {
     width: 50%;
+  }
+
+  .title__heading {
+    font-size: 1.5rem;
   }
 }
