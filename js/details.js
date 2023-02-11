@@ -12,7 +12,7 @@ let apiUrl = "";
 
 const setDetails = (data) => {
   const backImg = document.querySelector(".backdrop");
-  const frontImg = document.querySelector(".front-image");
+  const frontImg = document.querySelector(".frontImage__img");
 
   let backUrl = `https://image.tmdb.org/t/p/w1280${data.backdrop_path}`;
   let frontUrl = `https://image.tmdb.org/t/p/w342${data.poster_path}`;
@@ -24,7 +24,7 @@ const setDetails = (data) => {
     backImg.style.backgroundImage = `url(${frontUrl})`;
   }
 
-  frontImg.style.backgroundImage = `url(${frontUrl})`;
+  frontImg.src = frontUrl;
 
   const name = document.querySelector(".name");
   const rating = document.querySelector(".rating");
@@ -36,7 +36,7 @@ const setDetails = (data) => {
     name.innerHTML = data.title;
   }
 
-  rating.innerHTML = `Rating: ${Math.round(data.vote_average)}/10`;
+  rating.innerHTML = `Rating: ${Math.round(data.vote_average * 10) / 10}/10`;
 
   overview.innerHTML = `${data.overview}`;
 

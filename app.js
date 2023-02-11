@@ -76,7 +76,7 @@ const moveSlideToLeft = () => {
 const autoChangeSlide = () => {
   setInterval(moveSlideToRight, 3000);
 }
-//autoChangeSlide();
+autoChangeSlide();
 
 
 const setTrending = (movies, shows) => {

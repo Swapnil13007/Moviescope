@@ -36,6 +36,7 @@
 
 html {
   font-size: 62.5%;
+  min-height: 100vh;
 }
 
 body {
@@ -116,6 +117,13 @@ body {
 
 .searchBox__img:active {
   transform: scale(90%);
+}
+
+.main {
+  position: relative;
+  margin-top: 5.5rem;
+  min-height: calc(100vh - 15.5rem);
+  padding: 2%;
 }
 
 .footer {

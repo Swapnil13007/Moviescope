@@ -1,16 +1,16 @@
-.backdrop-container {
+.backdrop__container {
   position: relative;
-  padding-top: 10vh;
+  height: 100%;
   width: 100%;
-  min-height: 85%;
 }
 
 .backdrop {
-  height: 75vh;
   width: 100%;
+  height: 100%;
   background-position: top;
   background-size: cover;
 
+  padding: 1%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -25,14 +25,14 @@
   height: 100%;
 }
 
-.front-image {
-  height: 83%;
+.frontImage {
   width: 20%;
-  min-width: 245px;
-  background-position: center;
-  background-size: cover;
-  border-radius: 8px;
   z-index: 1;
+}
+
+.frontImage__img {
+  border-radius: 8px;
+  width: 100%;
 }
 
 .details {
