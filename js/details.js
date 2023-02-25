@@ -27,7 +27,7 @@ const setDetails = (data) => {
   frontImg.src = frontUrl;
 
   const name = document.querySelector(".name");
-  const rating = document.querySelector(".rating");
+  const rating = document.querySelector(".rating__number");
   const overview = document.querySelector(".overview");
 
   if (data.name) {
@@ -36,7 +36,7 @@ const setDetails = (data) => {
     name.innerHTML = data.title;
   }
 
-  rating.innerHTML = `Rating: ${Math.round(data.vote_average * 10) / 10}/10`;
+  rating.innerHTML = `${Math.round(data.vote_average * 10) / 10} / 10`;
 
   overview.innerHTML = `${data.overview}`;
 

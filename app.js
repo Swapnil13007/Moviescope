@@ -14,6 +14,7 @@ const imgRight = document.querySelector(".frontImages__btn--right");
 
 const placeSlideImages = (data) => {
   const slideContainer = document.querySelector(".frontImages");
+
   data.forEach(movie => {
     let frontImgUrl = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
 
@@ -36,7 +37,13 @@ const setSlides = (data) => {
   const overview = document.querySelector(".info__overview");
 
   slides[activeImgNo].classList.add("active");
-  backgroundSlide.style.backgroundImage = `url(${backdropImagesArr[activeImgNo]})`;
+
+  const newImg = document.createElement('img');
+  newImg.classList.add("slide__backImg");
+  newImg.src = `${backdropImagesArr[activeImgNo]}`;
+  backgroundSlide.appendChild(newImg);
+
+  // backgroundSlide.style.backgroundImage = `url(${backdropImagesArr[activeImgNo]})`;
   title.innerHTML = slideMovieNames[activeImgNo];
   overview.innerHTML = slideMovieOverview[activeImgNo];
   // console.dir(slides);
