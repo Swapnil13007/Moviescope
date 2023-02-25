@@ -15,7 +15,7 @@
   position: absolute;
   background-color: rgba(0, 0, 0, .5);
   z-index: 2;
-  animation: Opacity .4s ease-in-out;
+  /* animation: Opacity .4s ease-in-out; */
 }
 
 .slide__backImg {
@@ -26,7 +26,9 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
-  animation: Opacity .8s ease-in-out;
+  opacity: 0;
+  transition: .6s ease-in-out;
+  /* animation: Opacity .8s ease-in-out; */
 }
 
 .frontImages {

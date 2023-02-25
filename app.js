@@ -1,24 +1,23 @@
 
 const APIKey = "93ac677313f294316aab34b8d4ec8917";
 let activeImgNo = 0;
-let backdropImagesArr = [];
 let slideMovieNames = [];
 let slideMovieOverview = [];
 
 const searchBox = document.querySelector(".searchBox__input");
 const searchBtn = document.querySelector(".searchBox__btn");
 const resultImg = document.querySelector(".movies");
-const backgroundSlide = document.querySelector(".slide");
 const imgLeft = document.querySelector(".frontImages__btn--left");
 const imgRight = document.querySelector(".frontImages__btn--right");
 
 const placeSlideImages = (data) => {
   const slideContainer = document.querySelector(".frontImages");
+  const backgroundSlide = document.querySelector(".slide");
 
   data.forEach(movie => {
     let frontImgUrl = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;
+    let backImgUrl = `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`;
 
-    backdropImagesArr.push(`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`);
     slideMovieNames.push(movie.title);
     slideMovieOverview.push(movie.overview);
     // console.log(movie);
@@ -28,22 +27,23 @@ const placeSlideImages = (data) => {
     newImg.classList.add("frontImages__img");
     newImg.src = `${frontImgUrl}`;
     slideContainer.appendChild(newImg);
+
+    const newBackImg = document.createElement('img');
+    newBackImg.classList.add("slide__backImg");
+    newBackImg.src = `${backImgUrl}`;
+    backgroundSlide.appendChild(newBackImg);
     // console.dir(newImg);
   });
 }
-const setSlides = (data) => {
+const setSlides = () => {
   const slides = document.querySelectorAll(".frontImages__img");
+  const backImg = document.querySelectorAll(".slide__backImg");
   const title = document.querySelector(".info__title");
   const overview = document.querySelector(".info__overview");
 
   slides[activeImgNo].classList.add("active");
+  backImg[activeImgNo].classList.add('active');
 
-  const newImg = document.createElement('img');
-  newImg.classList.add("slide__backImg");
-  newImg.src = `${backdropImagesArr[activeImgNo]}`;
-  backgroundSlide.appendChild(newImg);
-
-  // backgroundSlide.style.backgroundImage = `url(${backdropImagesArr[activeImgNo]})`;
   title.innerHTML = slideMovieNames[activeImgNo];
   overview.innerHTML = slideMovieOverview[activeImgNo];
   // console.dir(slides);
@@ -54,7 +54,7 @@ const getSlideImages = async () => {
     const res = await axios.get(APIUrl);
     // console.log(res.data.results);
     placeSlideImages(res.data.results);
-    setSlides(res.data.results);
+    setSlides();
   }
   catch (err) {
     console.log(err);
@@ -64,7 +64,11 @@ getSlideImages();
 
 const moveSlideToRight = () => {
   const slides = document.querySelectorAll(".frontImages__img");
+  const backImg = document.querySelectorAll(".slide__backImg");
+
   slides[activeImgNo].classList.remove("active");
+  backImg[activeImgNo].classList.remove("active");
+
   activeImgNo++;
   if (activeImgNo > slides.length - 1) {
     activeImgNo = 0;
@@ -73,7 +77,11 @@ const moveSlideToRight = () => {
 }
 const moveSlideToLeft = () => {
   const slides = document.querySelectorAll(".frontImages__img");
+  const backImg = document.querySelectorAll(".slide__backImg");
+
   slides[activeImgNo].classList.remove("active");
+  backImg[activeImgNo].classList.remove("active");
+
   activeImgNo--;
   if (activeImgNo < 0) {
     activeImgNo = slides.length - 1;
