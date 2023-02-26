@@ -81,6 +81,16 @@ const setVideos = (videos) => {
     const vidSection = document.querySelector(".videos")
     vidSection.style.display = "none";
   }
+  else if (trailersCount == 0) {
+    const trailerHeader = document.querySelector(".Trailers__header-box");
+    trailerHeader.style.display = "none";
+    trailersContainer.style.display = "none";
+  }
+  else if (teasersCount == 0) {
+    const teaserHeader = document.querySelector(".Teasers__header-box");
+    teaserHeader.style.display = "none";
+    teasersContainer.style.display = "none";
+  }
 }
 
 const getDetails = async (url) => {
