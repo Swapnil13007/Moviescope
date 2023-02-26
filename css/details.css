@@ -130,3 +130,29 @@
   aspect-ratio: 1.777;
   border-radius: 2rem;
 }
+
+
+
+
+
+@media(max-width:64rem) {
+
+  .Trailer__container,
+  .Teaser__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width:27rem) {
+
+  .Trailer__container,
+  .Teaser__container {
+    grid-template-columns: 1fr;
+  }
+
+  .Teaser__container>.video:nth-of-type(4),
+  .Teaser__container>.video:nth-of-type(5),
+  .Teaser__container>.video:nth-of-type(6) {
+    display: none;
+  }
+}
