@@ -42,18 +42,60 @@ const setDetails = (data) => {
 
 }
 
+const setVideos = (videos) => {
+  const trailersContainer = document.querySelector(".Trailer__container");
+  const teasersContainer = document.querySelector(".Teaser__container");
+  let trailersCount = 0;
+  let teasersCount = 0;
+
+  // console.log(videos);
+
+  videos.forEach(video => {
+
+    if (video.type == "Trailer") {
+      trailersCount++;
+      const videoURL = `https://www.youtube.com/embed/${video.key}`;
+      const newVideo = document.createElement('iframe');
+      newVideo.classList.add('video');
+      newVideo.src = videoURL;
+      newVideo.setAttribute("loading", "lazy");
+      newVideo.setAttribute("frameborder", "0");
+      newVideo.setAttribute("allow", "autoplay; fullscreen; encrypted-media; picture-in-picture;");
+      trailersContainer.prepend(newVideo);
+    }
+    if (video.type == "Teaser" && teasersCount < 6) {
+      teasersCount++;
+      const videoURL = `https://www.youtube.com/embed/${video.key}`;
+      const newVideo = document.createElement('iframe');
+      newVideo.classList.add('video');
+      newVideo.src = videoURL;
+      newVideo.setAttribute("loading", "lazy");
+      newVideo.setAttribute("frameborder", "0");
+      newVideo.setAttribute("allow", "autoplay; fullscreen; encrypted-media; picture-in-picture;");
+      teasersContainer.prepend(newVideo);
+    }
+
+  });
+
+  if (trailersCount + teasersCount == 0) {
+    const vidSection = document.querySelector(".videos")
+    vidSection.style.display = "none";
+  }
+}
+
 const getDetails = async (url) => {
   const res = await axios.get(url);
   console.log(res.data);
   setDetails(res.data);
+  setVideos(res.data.videos.results);
 }
 
 if (movId) {
-  apiUrl = `https://api.themoviedb.org/3/movie/${movId}?api_key=${APIKey}&language=en-US`;
+  apiUrl = `https://api.themoviedb.org/3/movie/${movId}?api_key=${APIKey}&language=en-US&append_to_response=videos`;
   getDetails(apiUrl);
 }
 else if (showId) {
-  apiUrl = `https://api.themoviedb.org/3/tv/${showId}?api_key=${APIKey}&language=en-US`;
+  apiUrl = `https://api.themoviedb.org/3/tv/${showId}?api_key=${APIKey}&language=en-US&append_to_response=videos`;
   getDetails(apiUrl);
 }
 else {

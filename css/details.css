@@ -89,3 +89,44 @@
   align-items: flex-start;
   font-size: 1.5rem;
 }
+
+.videos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Trailers__header-box,
+.Teasers__header-box {
+  width: 100%;
+  height: 6rem;
+  padding-left: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.Trailers__header,
+.Teasers__header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-family: var(--ubuntu-font);
+  color: transparent;
+  background: linear-gradient(90deg, var(--nav-color), var(--nav-color2));
+  -webkit-background-clip: text;
+  animation: L1 1s ease;
+}
+
+.Trailer__container,
+.Teaser__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.video {
+  width: 100%;
+  padding: 2%;
+  aspect-ratio: 1.777;
+  border-radius: 2rem;
+}
