@@ -9,7 +9,7 @@
   height: 100%;
   background-position: top;
   background-size: cover;
-
+  overflow: hidden;
   padding: 1%;
   display: flex;
   align-items: center;
@@ -29,6 +29,8 @@
 .frontImage {
   width: 20%;
   z-index: 1;
+  min-width: 17.7rem;
+  max-width: 25rem;
 }
 
 .frontImage__img {
@@ -44,7 +46,7 @@
   width: 60%;
   z-index: 1;
   border-radius: 12px;
-  border: 1px solid whitesmoke;
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -54,8 +56,8 @@
 }
 
 .name {
-  padding-bottom: 1rem;
-  height: 25%;
+  padding-bottom: 1.5%;
+  /* height: 25%; */
   width: 97%;
   color: white;
   display: flex;
@@ -65,7 +67,7 @@
 }
 
 .rating {
-  padding-bottom: 1rem;
+  padding-bottom: 1.5%;
   height: 10%;
   width: 97%;
   color: white;
@@ -87,7 +89,7 @@
   color: white;
   display: flex;
   align-items: flex-start;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .videos {
@@ -136,6 +138,9 @@
 
 
 @media(max-width:64rem) {
+  .overview {
+    font-size: 1.7rem;
+  }
 
   .Trailer__container,
   .Teaser__container {
@@ -143,16 +148,75 @@
   }
 }
 
-@media(max-width:27rem) {
+@media(max-width:48rem) {
+
+  .overview {
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width:40rem) {
+
+  .backdrop__container {
+    height: 60rem;
+  }
+
+  .backdrop {
+    flex-direction: column;
+  }
+
+  .details {
+    width: 85%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .name {
+    padding-bottom: 3%;
+    font-size: 2.5rem;
+  }
+
+  .rating {
+    padding-bottom: 3%;
+    font-size: 1.4rem;
+  }
+
+  .overview {
+    font-size: 1.2rem;
+  }
 
   .Trailer__container,
   .Teaser__container {
     grid-template-columns: 1fr;
   }
+}
 
+@media(max-width:27rem) {
+
+  .name {
+    font-size: 2.4rem;
+  }
+
+  .Trailer__container>.video:nth-of-type(4),
   .Teaser__container>.video:nth-of-type(4),
+  .Trailer__container>.video:nth-of-type(5),
   .Teaser__container>.video:nth-of-type(5),
+  .Trailer__container>.video:nth-of-type(6),
   .Teaser__container>.video:nth-of-type(6) {
     display: none;
+  }
+}
+
+@media(max-width:20rem) {
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .rating {
+    font-size: 1.3rem;
+  }
+
+  .overview {
+    font-size: 1.1rem;
   }
 }

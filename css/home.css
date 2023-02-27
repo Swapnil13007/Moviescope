@@ -229,7 +229,7 @@
 /* 1024px */
 @media(max-width:64rem) {
   .info__overview {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   .movies__image,

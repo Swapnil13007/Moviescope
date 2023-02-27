@@ -52,7 +52,7 @@ const setVideos = (videos) => {
 
   videos.forEach(video => {
 
-    if (video.type == "Trailer") {
+    if (video.type == "Trailer" && trailersCount < 6) {
       trailersCount++;
       const videoURL = `https://www.youtube.com/embed/${video.key}`;
       const newVideo = document.createElement('iframe');
