@@ -73,7 +73,7 @@
   color: white;
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-family: var(--ubuntu-font);
   letter-spacing: .1rem;
 }
@@ -84,12 +84,12 @@
 }
 
 .overview {
-  height: 60%;
+  /* height: 60%; */
   width: 97%;
   color: white;
   display: flex;
   align-items: flex-start;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .videos {
@@ -139,7 +139,7 @@
 
 @media(max-width:64rem) {
   .overview {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   .Trailer__container,
@@ -158,7 +158,7 @@
 @media(max-width:40rem) {
 
   .backdrop__container {
-    height: 60rem;
+    height: 65rem;
   }
 
   .backdrop {
@@ -172,17 +172,17 @@
   }
 
   .name {
-    padding-bottom: 3%;
+    padding-bottom: 1%;
     font-size: 2.5rem;
   }
 
   .rating {
-    padding-bottom: 3%;
-    font-size: 1.4rem;
+    padding-bottom: 1%;
+    font-size: 1.5rem;
   }
 
   .overview {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   .Trailer__container,
@@ -208,15 +208,19 @@
 }
 
 @media(max-width:20rem) {
+  .backdrop__container {
+    height: 70rem;
+  }
+
   .name {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
 
   .rating {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .overview {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 }

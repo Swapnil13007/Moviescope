@@ -132,7 +132,7 @@ body {
 .main {
   position: relative;
   margin-top: 5.5rem;
-  min-height: calc(100vh - 15.5rem);
+  min-height: calc(100svh - 15.5rem);
   padding: 2%;
 }
 

@@ -1,4 +1,5 @@
 const APIKey = "93ac677313f294316aab34b8d4ec8917";
+const YtKey = "AIzaSyBI5os32tm3KM6tMxMloDrTXOfNbWJcIfc";
 const searchBox = document.querySelector(".searchBox__input");
 const searchBtn = document.querySelector(".searchBox__btn");
 
@@ -42,6 +43,22 @@ const setDetails = (data) => {
 
 }
 
+const checkRestricted = async (videoId) => {
+  let url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${YtKey}&part=snippet,contentDetails,status`;
+
+  let sta;
+
+  const res = await axios.get(url);
+  if (res.data.items[0].contentDetails.regionRestriction) {
+    sta = true;
+  } else {
+    sta = false;
+  }
+
+  return sta;
+}
+
+
 const setVideos = (videos) => {
   const trailersContainer = document.querySelector(".Trailer__container");
   const teasersContainer = document.querySelector(".Teaser__container");
@@ -54,28 +71,49 @@ const setVideos = (videos) => {
 
     if (video.type == "Trailer" && trailersCount < 6) {
       trailersCount++;
-      const videoURL = `https://www.youtube.com/embed/${video.key}`;
-      const newVideo = document.createElement('iframe');
-      newVideo.classList.add('video');
-      newVideo.src = videoURL;
-      newVideo.setAttribute("loading", "lazy");
-      newVideo.setAttribute("frameborder", "0");
-      newVideo.setAttribute("allow", "autoplay; fullscreen; encrypted-media; picture-in-picture;");
-      trailersContainer.prepend(newVideo);
+
+      checkRestricted(video.key).then((res) => {
+        if (!res) {
+          const videoURL = `https://www.youtube.com/embed/${video.key}`;
+          const newVideo = document.createElement('iframe');
+          newVideo.classList.add('video');
+          newVideo.id = "ifrvideo";
+          newVideo.src = videoURL;
+          newVideo.setAttribute("loading", "lazy");
+          newVideo.setAttribute("frameborder", "0");
+          newVideo.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share");
+          newVideo.setAttribute("sandbox", "allow-same-origin allow-scripts");
+          trailersContainer.prepend(newVideo);
+        }
+        else {
+          trailersCount--;
+        }
+      })
+
+
     }
     if (video.type == "Teaser" && teasersCount < 6) {
       teasersCount++;
-      const videoURL = `https://www.youtube.com/embed/${video.key}`;
-      const newVideo = document.createElement('iframe');
-      newVideo.classList.add('video');
-      newVideo.src = videoURL;
-      newVideo.setAttribute("loading", "lazy");
-      newVideo.setAttribute("frameborder", "0");
-      newVideo.setAttribute("allow", "autoplay; fullscreen; encrypted-media; picture-in-picture;");
-      teasersContainer.prepend(newVideo);
+
+      checkRestricted(video.key).then((res) => {
+        if (!res) {
+          const videoURL = `https://www.youtube.com/embed/${video.key}`;
+          const newVideo = document.createElement('iframe');
+          newVideo.classList.add('video');
+          newVideo.src = videoURL;
+          newVideo.setAttribute("loading", "lazy");
+          newVideo.setAttribute("frameborder", "0");
+          newVideo.setAttribute("allow", "autoplay; fullscreen; encrypted-media; picture-in-picture;");
+          teasersContainer.prepend(newVideo);
+        }
+        else {
+          teasersCount--;
+        }
+      })
     }
 
   });
+
 
   if (trailersCount + teasersCount == 0) {
     const vidSection = document.querySelector(".videos")
@@ -93,9 +131,10 @@ const setVideos = (videos) => {
   }
 }
 
+
 const getDetails = async (url) => {
   const res = await axios.get(url);
-  console.log(res.data);
+  // console.log(res.data);
   setDetails(res.data);
   setVideos(res.data.videos.results);
 }
