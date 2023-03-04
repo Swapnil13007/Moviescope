@@ -68,9 +68,9 @@ const setVideos = (videos) => {
   // console.log(videos);
 
   videos.forEach(video => {
-
     if (video.type == "Trailer" && trailersCount < 6) {
       trailersCount++;
+      console.log(trailersCount);
 
       checkRestricted(video.key).then((res) => {
         if (!res) {
@@ -86,12 +86,12 @@ const setVideos = (videos) => {
           trailersContainer.prepend(newVideo);
         }
         else {
-          trailersCount--;
+          --trailersCount;
+          console.log(trailersCount);
         }
       })
-
-
     }
+
     if (video.type == "Teaser" && teasersCount < 6) {
       teasersCount++;
 
@@ -107,28 +107,44 @@ const setVideos = (videos) => {
           teasersContainer.prepend(newVideo);
         }
         else {
-          teasersCount--;
+          --teasersCount;
         }
       })
     }
 
   });
 
+  setTimeout(() => {
+    if (trailersCount + teasersCount == 0) {
+      const vidSection = document.querySelector(".videos")
+      vidSection.style.display = "none";
+    }
+    else if (trailersCount == 0) {
+      const trailerHeader = document.querySelector(".Trailers__header-box");
+      trailerHeader.style.display = "none";
+      trailersContainer.style.display = "none";
+    }
+    else if (teasersCount == 0) {
+      const teaserHeader = document.querySelector(".Teasers__header-box");
+      teaserHeader.style.display = "none";
+      teasersContainer.style.display = "none";
+    }
+  }, 500);
 
-  if (trailersCount + teasersCount == 0) {
-    const vidSection = document.querySelector(".videos")
-    vidSection.style.display = "none";
-  }
-  else if (trailersCount == 0) {
-    const trailerHeader = document.querySelector(".Trailers__header-box");
-    trailerHeader.style.display = "none";
-    trailersContainer.style.display = "none";
-  }
-  else if (teasersCount == 0) {
-    const teaserHeader = document.querySelector(".Teasers__header-box");
-    teaserHeader.style.display = "none";
-    teasersContainer.style.display = "none";
-  }
+  // if (trailersCount + teasersCount == 0) {
+  //   const vidSection = document.querySelector(".videos")
+  //   vidSection.style.display = "none";
+  // }
+  // else if (trailersCount == 0) {
+  //   const trailerHeader = document.querySelector(".Trailers__header-box");
+  //   trailerHeader.style.display = "none";
+  //   trailersContainer.style.display = "none";
+  // }
+  // else if (teasersCount == 0) {
+  //   const teaserHeader = document.querySelector(".Teasers__header-box");
+  //   teaserHeader.style.display = "none";
+  //   teasersContainer.style.display = "none";
+  // }
 }
 
 
