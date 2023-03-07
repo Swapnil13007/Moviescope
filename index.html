@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/b26051f063.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="img/favicon-3.svg">
   <link rel="stylesheet" href="shared.css">
   <link rel="stylesheet" href="./css/home.css">
   <title>Moviescope</title>
@@ -15,7 +16,12 @@
 
   <header class="header">
     <nav class="nav">
-      <h1 class="nav__title">Moviescope</h1>
+      <div class="title__box">
+        <a href="#" class="icon__box nav__link">
+          <img class="nav__icon" src="img/favicon-3.svg">
+          <h1 class="nav__title">Moviescope</h1>
+        </a>
+      </div>
       <form action="./pages/search.html" class="searchBox">
         <input type="text" class="searchBox__input" name="search" placeholder="Search Movies/TV Shows">
         <button class="searchBox__btn">
@@ -53,12 +59,12 @@
         </a>
       </div>
       <div class="movies__container">
-        <!-- 
+        <!--
           <a href="./pages/details.html">
             <div class="movies__image" id="505642">
               <img src="https://image.tmdb.org/t/p/w342/sv1xJUazXeYqALzczSZ3O6nkH75.jpg">
             </div>
-          </a> 
+          </a>
         -->
       </div>
     </section>
