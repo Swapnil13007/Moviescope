@@ -75,18 +75,12 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.icon__box {
-  height: 100%;
-  display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .nav__icon {
-  margin-right: 5%;
-  height: 75%;
+  height: 80%;
+  padding-right: 1%;
 }
 
 .nav__title {
@@ -114,7 +108,7 @@ body {
 
 .searchBox__input {
   background-color: var(--nav-color-contrast);
-  padding: 1.6rem;
+  padding: 1rem 0rem 1rem 1rem;
   height: 100%;
   width: 90%;
   font-size: 1.5rem;
