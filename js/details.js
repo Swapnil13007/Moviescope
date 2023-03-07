@@ -81,8 +81,7 @@ const setVideos = (videos) => {
           newVideo.src = videoURL;
           newVideo.setAttribute("loading", "lazy");
           newVideo.setAttribute("frameborder", "0");
-          newVideo.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share");
-          newVideo.setAttribute("sandbox", "allow-same-origin allow-scripts");
+          newVideo.setAttribute("allow", "autoplay; fullscreen; encrypted-media; picture-in-picture;");
           trailersContainer.prepend(newVideo);
         }
         else {
