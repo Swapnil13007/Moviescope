@@ -3,6 +3,8 @@ const YtKey = "AIzaSyBI5os32tm3KM6tMxMloDrTXOfNbWJcIfc";
 const searchBox = document.querySelector(".searchBox__input");
 const searchBtn = document.querySelector(".searchBox__btn");
 
+// https://image.tmdb.org/t/p/original/bigNth9ADumR0vsrA9GDjfEg3j4.jpg
+
 searchBtn.addEventListener("click", (evt) => {
   sessionStorage.setItem("movieName", searchBox.value);
 })
@@ -68,9 +70,8 @@ const setVideos = (videos) => {
   // console.log(videos);
 
   videos.forEach(video => {
-    if (video.type == "Trailer" && trailersCount < 6) {
+    if (video.type == "Trailer" && trailersCount < 2) {
       trailersCount++;
-      console.log(trailersCount);
 
       checkRestricted(video.key).then((res) => {
         if (!res) {
@@ -86,12 +87,11 @@ const setVideos = (videos) => {
         }
         else {
           --trailersCount;
-          console.log(trailersCount);
         }
       })
     }
 
-    if (video.type == "Teaser" && teasersCount < 6) {
+    if (video.type == "Teaser" && teasersCount < 2) {
       teasersCount++;
 
       checkRestricted(video.key).then((res) => {
@@ -130,36 +130,54 @@ const setVideos = (videos) => {
     }
   }, 500);
 
-  // if (trailersCount + teasersCount == 0) {
-  //   const vidSection = document.querySelector(".videos")
-  //   vidSection.style.display = "none";
-  // }
-  // else if (trailersCount == 0) {
-  //   const trailerHeader = document.querySelector(".Trailers__header-box");
-  //   trailerHeader.style.display = "none";
-  //   trailersContainer.style.display = "none";
-  // }
-  // else if (teasersCount == 0) {
-  //   const teaserHeader = document.querySelector(".Teasers__header-box");
-  //   teaserHeader.style.display = "none";
-  //   teasersContainer.style.display = "none";
-  // }
+}
+
+const setCast = (cast) => {
+  const castContainer = document.querySelector(".Cast__container");
+  let castCount = 0;
+
+  cast.forEach(people => {
+    if (people.profile_path && castCount < 8) {
+
+      const profile = document.createElement('div');
+      profile.classList.add("Cast__profile");
+
+      const imgContainer = document.createElement('div');
+      imgContainer.classList.add("Cast__img-container");
+
+      const image = document.createElement('img');
+      image.classList.add("Cast__img");
+      image.src = ` https://image.tmdb.org/t/p/w154${people.profile_path}`;
+
+      const name = document.createElement('div');
+      name.classList.add("Cast__name");
+      name.innerText = `${people.name}`;
+
+      imgContainer.append(image);
+      profile.append(imgContainer);
+      profile.append(name);
+      castContainer.append(profile);
+
+      castCount++;
+    }
+  })
 }
 
 
 const getDetails = async (url) => {
   const res = await axios.get(url);
-  // console.log(res.data);
+  console.log(res.data);
   setDetails(res.data);
   setVideos(res.data.videos.results);
+  setCast(res.data.credits.cast);
 }
 
 if (movId) {
-  apiUrl = `https://api.themoviedb.org/3/movie/${movId}?api_key=${APIKey}&language=en-US&append_to_response=videos`;
+  apiUrl = `https://api.themoviedb.org/3/movie/${movId}?api_key=${APIKey}&language=en-US&append_to_response=videos,credits`;
   getDetails(apiUrl);
 }
 else if (showId) {
-  apiUrl = `https://api.themoviedb.org/3/tv/${showId}?api_key=${APIKey}&language=en-US&append_to_response=videos`;
+  apiUrl = `https://api.themoviedb.org/3/tv/${showId}?api_key=${APIKey}&language=en-US&append_to_response=videos,credits`;
   getDetails(apiUrl);
 }
 else {

@@ -1,0 +1,36 @@
+.people__container {
+  width: 100%;
+  padding: 2%;
+  height: 40rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+  background-image: linear-gradient(135deg, var(--nav-color2), var(--nav-color));
+}
+
+.people__img-box {
+  margin-right: 2%;
+  width: 25%;
+  max-width: 236px;
+  min-width: 212px;
+  aspect-ratio: .677;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.people__img {
+  width: 100%;
+}
+
+.people__biography-box {
+  padding: 2%;
+  width: 70%;
+  height: 100%;
+  background-color: var(--nav-color-contrast);
+  border-radius: 8px;
+}
+
+.people__biography {
+  font-size: 2.4rem;
+}
