@@ -160,6 +160,18 @@
   width: 100%;
   aspect-ratio: 0.7;
   border-radius: 8px;
+  transition: all .2s ease-in;
+}
+
+.Cast__img-container:hover {
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.444);
+  scale: 1.05;
+}
+
+.Cast__img-container:active {
+  box-shadow: none;
+  scale: .95;
 }
 
 .Cast__img {

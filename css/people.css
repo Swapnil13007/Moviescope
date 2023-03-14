@@ -10,13 +10,14 @@
 }
 
 .people__img-box {
-  margin-right: 2%;
-  width: 25%;
-  max-width: 236px;
-  min-width: 212px;
+  margin-right: 4%;
+  width: 20%;
+  max-width: 23.6rem;
+  min-width: 21.2rem;
   aspect-ratio: .677;
   overflow: hidden;
   border-radius: 8px;
+  box-shadow: 4px 4px 8px var(--nav-color-contrast);
 }
 
 .people__img {
@@ -24,13 +25,66 @@
 }
 
 .people__biography-box {
-  padding: 2%;
   width: 70%;
-  height: 100%;
+  min-height: 50%;
+  max-height: 85%;
+  margin-right: 2%;
   background-color: var(--nav-color-contrast);
-  border-radius: 8px;
+  border-radius: 1px;
+  outline: 1.5rem solid var(--nav-color-contrast);
+  overflow: scroll;
 }
 
 .people__biography {
-  font-size: 2.4rem;
+  text-align: justify;
+  font-size: 1.8rem;
 }
+
+
+
+
+
+@media(max-width:64rem) {
+  .people__biography {
+    font-size: 1.7rem;
+  }
+}
+
+@media(max-width:48rem) {
+  .people__biography {
+    font-size: 1.6rem;
+  }
+}
+
+@media(max-width:40rem) {
+  .people__container {
+    height: 65rem;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .people__img-box {
+    min-width: 18rem;
+    margin-right: 0;
+  }
+
+  .people__biography-box {
+    width: 90%;
+    max-height: 40%;
+    margin-right: 0;
+    margin-bottom: 4%;
+  }
+
+}
+
+@media(max-width:27rem) {
+  .people__biography-box {
+    margin-bottom: 6%;
+  }
+
+  .people__biography {
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width:20rem) {}

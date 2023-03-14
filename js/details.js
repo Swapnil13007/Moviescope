@@ -3,8 +3,6 @@ const YtKey = "AIzaSyBI5os32tm3KM6tMxMloDrTXOfNbWJcIfc";
 const searchBox = document.querySelector(".searchBox__input");
 const searchBtn = document.querySelector(".searchBox__btn");
 
-// https://image.tmdb.org/t/p/original/bigNth9ADumR0vsrA9GDjfEg3j4.jpg
-
 searchBtn.addEventListener("click", (evt) => {
   sessionStorage.setItem("movieName", searchBox.value);
 })
@@ -59,7 +57,6 @@ const checkRestricted = async (videoId) => {
 
   return sta;
 }
-
 
 const setVideos = (videos) => {
   const trailersContainer = document.querySelector(".Trailer__container");
@@ -132,6 +129,17 @@ const setVideos = (videos) => {
 
 }
 
+const getPeopleInfo = () => {
+  const peoples = document.querySelectorAll('.Cast__img');
+
+  peoples.forEach(people => {
+    people.addEventListener("click", (evt) => {
+      console.log(evt.target.id)
+      sessionStorage.setItem("personId", evt.target.id);
+    })
+  })
+}
+
 const setCast = (cast) => {
   const castContainer = document.querySelector(".Cast__container");
   let castCount = 0;
@@ -145,15 +153,20 @@ const setCast = (cast) => {
       const imgContainer = document.createElement('div');
       imgContainer.classList.add("Cast__img-container");
 
+      const anchor = document.createElement('a');
+      anchor.href = "./people.html";
+
       const image = document.createElement('img');
       image.classList.add("Cast__img");
       image.src = ` https://image.tmdb.org/t/p/w154${people.profile_path}`;
+      image.id = people.id;
 
       const name = document.createElement('div');
       name.classList.add("Cast__name");
       name.innerText = `${people.name}`;
 
-      imgContainer.append(image);
+      imgContainer.append(anchor);
+      anchor.append(image)
       profile.append(imgContainer);
       profile.append(name);
       castContainer.append(profile);
@@ -161,8 +174,9 @@ const setCast = (cast) => {
       castCount++;
     }
   })
-}
 
+  getPeopleInfo();
+}
 
 const getDetails = async (url) => {
   const res = await axios.get(url);
