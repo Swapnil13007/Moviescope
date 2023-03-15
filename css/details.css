@@ -101,7 +101,8 @@
 
 .Trailers__header-box,
 .Teasers__header-box,
-.Cast__header-box {
+.Cast__header-box,
+.Recommended__header-box {
   width: 100%;
   height: 6rem;
   padding-left: 1.6rem;
@@ -111,7 +112,8 @@
 
 .Trailers__header,
 .Teasers__header,
-.Cast__header {
+.Cast__header,
+.Recommended__header {
   font-size: 2.5rem;
   font-weight: 600;
   font-family: var(--ubuntu-font);
@@ -184,6 +186,34 @@
   text-align: center;
 }
 
+.Recommended__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  overflow: hidden;
+}
+
+.Recommended__img-container {
+  width: 100%;
+}
+
+.Recommended__img {
+  width: 95%;
+  height: 97%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform ease-out 0.1s, box-shadow ease-out 0.1s;
+}
+
+.Recommended__img:hover {
+  box-shadow: 4px 4px 16px var(--shadow-color);
+  transform: scale(101%);
+}
+
+.Recommended__img:active {
+  box-shadow: none;
+  transform: scale(99%);
+}
+
 
 
 @media(max-width:64rem) {
@@ -205,6 +235,10 @@
 
   .Cast__container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .Recommended__container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -257,6 +291,10 @@
 
   .Cast__container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .Recommended__container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

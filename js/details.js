@@ -134,7 +134,6 @@ const getPeopleInfo = () => {
 
   peoples.forEach(people => {
     people.addEventListener("click", (evt) => {
-      console.log(evt.target.id)
       sessionStorage.setItem("personId", evt.target.id);
     })
   })
@@ -165,9 +164,9 @@ const setCast = (cast) => {
       name.classList.add("Cast__name");
       name.innerText = `${people.name}`;
 
-      imgContainer.append(anchor);
-      anchor.append(image)
-      profile.append(imgContainer);
+      anchor.append(imgContainer);
+      imgContainer.append(image);
+      profile.append(anchor);
       profile.append(name);
       castContainer.append(profile);
 
@@ -175,7 +174,64 @@ const setCast = (cast) => {
     }
   })
 
-  getPeopleInfo();
+  if (castCount > 0) {
+    getPeopleInfo();
+  } else {
+    const castSection = document.querySelector(".Cast__section");
+    castSection.style.display = "none";
+  }
+
+}
+
+const getRecommendInfo = () => {
+  const images = document.querySelectorAll('.Recommended__img');
+
+  images.forEach(img => {
+    img.addEventListener("click", (evt) => {
+      console.dir(evt.target);
+      if (movId) {
+        sessionStorage.setItem("movId", evt.target.id);
+      }
+      else {
+        sessionStorage.setItem("showId", evt.target.id);
+      }
+    })
+  })
+}
+
+const setRecommedation = (data) => {
+  const recommendContainer = document.querySelector(".Recommended__container");
+  let recCount = 0;
+
+  data.forEach(movie => {
+    if (movie.original_language === "en" && movie.poster_path) {
+
+      const imgContainer = document.createElement('div');
+      imgContainer.classList.add("Recommended__img-container");
+
+      const anchor = document.createElement('a');
+      anchor.href = "./details.html";
+
+      const image = document.createElement('img');
+      image.classList.add("Recommended__img");
+      image.src = ` https://image.tmdb.org/t/p/w342${movie.poster_path}`;
+      image.id = movie.id;
+
+      imgContainer.append(anchor);
+      anchor.append(image);
+      recommendContainer.append(imgContainer);
+
+      recCount++;
+    }
+  })
+
+  if (recCount > 0) {
+    getRecommendInfo();
+  } else {
+    const RecommendedSection = document.querySelector(".Recommended__section");
+    RecommendedSection.style.display = "none";
+  }
+
 }
 
 const getDetails = async (url) => {
@@ -184,14 +240,16 @@ const getDetails = async (url) => {
   setDetails(res.data);
   setVideos(res.data.videos.results);
   setCast(res.data.credits.cast);
+  setRecommedation(res.data.recommendations.results);
 }
 
+
 if (movId) {
-  apiUrl = `https://api.themoviedb.org/3/movie/${movId}?api_key=${APIKey}&language=en-US&append_to_response=videos,credits`;
+  apiUrl = `https://api.themoviedb.org/3/movie/${movId}?api_key=${APIKey}&language=en-US&append_to_response=videos,credits,recommendations,reviews`;
   getDetails(apiUrl);
 }
 else if (showId) {
-  apiUrl = `https://api.themoviedb.org/3/tv/${showId}?api_key=${APIKey}&language=en-US&append_to_response=videos,credits`;
+  apiUrl = `https://api.themoviedb.org/3/tv/${showId}?api_key=${APIKey}&language=en-US&append_to_response=videos,credits,recommendations,reviews`;
   getDetails(apiUrl);
 }
 else {
