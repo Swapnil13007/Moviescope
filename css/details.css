@@ -182,14 +182,13 @@
 
 .Cast__name {
   padding: 4%;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   text-align: center;
 }
 
 .Recommended__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  overflow: hidden;
 }
 
 .Recommended__img-container {
@@ -213,6 +212,8 @@
   box-shadow: none;
   transform: scale(99%);
 }
+
+
 
 
 
@@ -259,12 +260,12 @@
   }
 
   .name {
-    padding-bottom: 1%;
+    padding-bottom: 3%;
     font-size: 2.5rem;
   }
 
   .rating {
-    padding-bottom: 1%;
+    padding-bottom: 3%;
     font-size: 1.5rem;
   }
 
@@ -274,6 +275,10 @@
 
   .Cast__container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .Recommended__container {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
 }

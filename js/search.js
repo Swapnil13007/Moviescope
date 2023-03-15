@@ -8,7 +8,7 @@ history.scrollRestoration = 'manual';
 
 window.onload = () => {
   let nameOfMovie = sessionStorage.getItem("movieName");
-  console.log(nameOfMovie);
+  // console.log(nameOfMovie);
   let API = `https://api.themoviedb.org/3/search/multi?api_key=${APIKey}&language=en-US&query=${nameOfMovie}&page=1&include_adult=false`;
   callAPI(API);
 }
@@ -56,7 +56,7 @@ const getMovDetails = (imgs) => {
   imgs.forEach((img) => {
     img.addEventListener("click", (evt) => {
       // evt.preventDefault();
-      console.dir(img.attributes.value);
+      // console.dir(img.attributes.value);
       if (img.attributes.value === "movie") {
         sessionStorage.setItem("movId", evt.target.parentElement.parentElement.id);
         sessionStorage.removeItem("showId");
