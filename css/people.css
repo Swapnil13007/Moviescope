@@ -34,10 +34,16 @@
   overflow: scroll;
 }
 
-.people__biography {
-  text-align: justify;
-  font-size: 1.9rem;
+.people__biography-box::-webkit-scrollbar {
+  width: 6px;
 }
+
+.people__biography {
+  padding-right: 1%;
+  text-align: justify;
+  font-size: 2rem;
+}
+
 
 .Work__header-box {
   width: 100%;
@@ -116,7 +122,7 @@
   }
 
   .people__biography {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 
   .Work__container {
