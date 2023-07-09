@@ -1,103 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/b26051f063.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/x-icon" href="../img/favicon-3.svg" />
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="../css/details.css" />
+    <title>Moviescope</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/b26051f063.js" crossorigin="anonymous"></script>
-  <link rel="icon" type="image/x-icon" href="../img/favicon-3.svg">
-  <link rel="stylesheet" href="../shared.css">
-  <!-- <link rel="stylesheet" href="../css/trending.css"> -->
-  <link rel="stylesheet" href="../css/details.css">
-  <title>Moviescope</title>
-</head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../index.html" class="title__box nav__link">
+          <img class="nav__icon" src="../img/favicon-3.svg" />
+          <h1 class="nav__title">Moviescope</h1>
+        </a>
 
-<body>
+        <form action="../pages/search.html" class="searchBox">
+          <input
+            type="text"
+            class="searchBox__input"
+            name="search"
+            placeholder="Search Movies/TV Shows"
+          />
+          <button class="searchBox__btn">
+            <img src="../img/search.svg" class="searchBox__img" />
+          </button>
+        </form>
+      </nav>
+    </header>
 
-  <header class="header">
-    <nav class="nav">
-      <a href="../index.html" class="title__box nav__link">
-        <img class="nav__icon" src="../img/favicon-3.svg">
-        <h1 class="nav__title">Moviescope</h1>
-      </a>
-
-      <form action="../pages/search.html" class="searchBox">
-        <input type="text" class="searchBox__input" name="search" placeholder="Search Movies/TV Shows">
-        <button class="searchBox__btn">
-          <img src="../img/search.svg" class="searchBox__img">
-        </button>
-      </form>
-    </nav>
-  </header>
-
-  <main class="main">
-
-    <section class="backdrop__container">
-      <div class="backdrop">
-
-        <div class="frontImage">
-          <img class="frontImage__img">
-        </div>
-
-        <div class="details">
-          <div class="name"></div>
-
-          <div class="rating">
-
-            <span class="rating__icon">
-              <i class="fa-solid fa-star"></i>
-            </span>
-            <span class="rating__number">
-
-            </span>
-
+    <main class="main">
+      <section class="backdrop__container">
+        <div class="backdrop">
+          <div class="frontImage">
+            <img class="frontImage__img" />
           </div>
 
-          <div class="overview"></div>
+          <div class="details">
+            <div class="name"></div>
 
+            <div class="rating">
+              <span class="rating__icon">
+                <i class="fa-solid fa-star"></i>
+              </span>
+              <span class="rating__number"> </span>
+            </div>
+
+            <div class="overview"></div>
+
+            <a class="btn__play" href="#" target="_blank">Play</a>
+          </div>
         </div>
-      </div>
+      </section>
 
-    </section>
+      <section class="videos">
+        <div class="Trailers__header-box">
+          <h1 class="Trailers__header">Official Trailers</h1>
+        </div>
 
-    <section class="videos">
-
-      <div class="Trailers__header-box">
-        <h1 class="Trailers__header">Official Trailers</h1>
-      </div>
-
-      <div class="Trailer__container">
-
-        <!-- <iframe class="video" src="https://www.youtube.com/embed/hebWYacbdvc" loading="lazy" frameborder="0"
+        <div class="Trailer__container">
+          <!-- <iframe class="video" src="https://www.youtube.com/embed/hebWYacbdvc" loading="lazy" frameborder="0"
           allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen>
         </iframe> -->
+        </div>
 
-      </div>
+        <div class="Teasers__header-box">
+          <h1 class="Teasers__header">Official Teasers</h1>
+        </div>
 
-      <div class="Teasers__header-box">
-        <h1 class="Teasers__header">Official Teasers</h1>
-      </div>
-
-      <div class="Teaser__container">
-
-        <!-- <iframe src="https://www.youtube.com/embed/bT9csxkth8g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+        <div class="Teaser__container">
+          <!-- <iframe src="https://www.youtube.com/embed/bT9csxkth8g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
         </iframe> -->
+        </div>
+      </section>
 
-      </div>
+      <section class="Cast__section">
+        <div class="Cast__header-box">
+          <h1 class="Cast__header">Cast & Crew</h1>
+        </div>
 
-    </section>
-
-    <section class="Cast__section">
-
-      <div class="Cast__header-box">
-        <h1 class="Cast__header">Cast & Crew</h1>
-      </div>
-
-      <div class="Cast__container">
-
-        <!-- <div class="Cast__profile">
+        <div class="Cast__container">
+          <!-- <div class="Cast__profile">
 
           <div class="Cast__img-container">
             <a href="./people.html">
@@ -108,35 +99,27 @@
           <div class="Cast__name">Mark</div>
 
         </div> -->
+        </div>
+      </section>
 
-      </div>
+      <section class="Recommended__section">
+        <div class="Recommended__header-box">
+          <h1 class="Recommended__header">Recommendations</h1>
+        </div>
 
-
-    </section>
-
-    <section class="Recommended__section">
-
-      <div class="Recommended__header-box">
-        <h1 class="Recommended__header">Recommendations</h1>
-      </div>
-
-      <div class="Recommended__container">
-
-        <!-- <div class="Recommended__img-container">
+        <div class="Recommended__container">
+          <!-- <div class="Recommended__img-container">
           <a href="./details.html">
             <img src="https://image.tmdb.org/t/p/w342/nnCsJc9x3ZiG3AFyiyc3FPehppy.jpg" class="Recommended__img">
           </a>
         </div> -->
+        </div>
+      </section>
+    </main>
 
-      </div>
+    <footer class="footer"></footer>
 
-    </section>
-
-  </main>
-
-  <footer class="footer">
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="../js/details.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/details.js"></script>
+  </body>
+</html>

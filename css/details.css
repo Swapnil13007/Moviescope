@@ -14,11 +14,11 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  animation: Opacity .4s ease-in-out;
+  animation: Opacity 0.4s ease-in-out;
 }
 
 .backdrop::before {
-  content: '';
+  content: "";
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@
 .frontImage__img {
   border-radius: 8px;
   width: 100%;
-  animation: Opacity .8s ease-in-out;
+  animation: Opacity 0.8s ease-in-out;
 }
 
 .details {
@@ -75,21 +75,47 @@
   align-items: center;
   font-size: 1.6rem;
   font-family: var(--ubuntu-font);
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 }
 
 .rating__icon {
-  padding-right: .5rem;
+  padding-right: 0.5rem;
   color: gold;
 }
 
 .overview {
+  padding-bottom: 1.5%;
   /* height: 60%; */
   width: 97%;
   color: white;
   display: flex;
   align-items: flex-start;
   font-size: 1.8rem;
+}
+
+.btn__play {
+  display: inline-block;
+  margin: 0 1%;
+  padding: 1% 6%;
+  background-color: white;
+  color: var(--nav-color);
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.btn__play:hover,
+.btn__play:focus {
+  scale: 1.05;
+  outline: none;
+  box-shadow: 2px 2px 8px var(--nav-color2);
+  color: white;
+  background-color: var(--nav-color);
+}
+.btn__play:active {
+  scale: 1;
+  box-shadow: none;
 }
 
 .videos {
@@ -147,13 +173,12 @@
 .Cast__profile {
   width: 100%;
   padding: 4%;
-  aspect-ratio: .6;
+  aspect-ratio: 0.6;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   border-radius: 8px;
-
 }
 
 .Cast__img-container {
@@ -162,7 +187,7 @@
   width: 100%;
   aspect-ratio: 0.7;
   border-radius: 8px;
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .Cast__img-container:hover {
@@ -173,7 +198,7 @@
 
 .Cast__img-container:active {
   box-shadow: none;
-  scale: .95;
+  scale: 0.95;
 }
 
 .Cast__img {
@@ -213,11 +238,7 @@
   transform: scale(99%);
 }
 
-
-
-
-
-@media(max-width:64rem) {
+@media (max-width: 64rem) {
   .overview {
     font-size: 1.6rem;
   }
@@ -228,8 +249,7 @@
   }
 }
 
-@media(max-width:48rem) {
-
+@media (max-width: 48rem) {
   .overview {
     font-size: 1.5rem;
   }
@@ -243,8 +263,7 @@
   }
 }
 
-@media(max-width:40rem) {
-
+@media (max-width: 40rem) {
   .backdrop__container {
     height: 65rem;
   }
@@ -270,6 +289,7 @@
   }
 
   .overview {
+    padding-bottom: 3%;
     font-size: 1.4rem;
   }
 
@@ -280,11 +300,9 @@
   .Recommended__container {
     grid-template-columns: 1fr 1fr 1fr;
   }
-
 }
 
-@media(max-width:27rem) {
-
+@media (max-width: 27rem) {
   .name {
     font-size: 2.4rem;
   }
@@ -303,7 +321,7 @@
   }
 }
 
-@media(max-width:20rem) {
+@media (max-width: 20rem) {
   .backdrop__container {
     height: 70rem;
   }
