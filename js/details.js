@@ -42,7 +42,7 @@ const setDetails = (data) => {
 
   overview.innerHTML = `${data.overview}`;
 
-  play.href = `${playUrl}${data.id}`;
+  play.href = `${playUrl}${data.id}&color=4e1d77`;
 };
 
 const checkRestricted = async (videoId) => {
