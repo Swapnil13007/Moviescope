@@ -96,7 +96,7 @@
 .btn__play {
   display: inline-block;
   margin: 0 1%;
-  padding: 1% 6%;
+  padding: 1% 4%;
   background-color: white;
   color: var(--nav-color);
   font-size: 2rem;

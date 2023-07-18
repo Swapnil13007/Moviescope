@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/b26051f063.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/x-icon" href="../img/favicon-3.svg" />
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="../css/watch.css" />
+    <title>Moviescope</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../index.html" class="title__box nav__link">
+          <img class="nav__icon" src="../img/favicon-3.svg" />
+          <h1 class="nav__title">Moviescope</h1>
+        </a>
+
+        <form action="../pages/search.html" class="searchBox">
+          <input
+            type="text"
+            class="searchBox__input"
+            name="search"
+            placeholder="Search Movies/TV Shows"
+          />
+          <button class="searchBox__btn">
+            <img src="../img/search.svg" class="searchBox__img" />
+          </button>
+        </form>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="video__section">
+        <div class="video__container">
+          <iframe class="video" src="" loading="lazy" frameborder="0"></iframe>
+        </div>
+      </section>
+
+      <section class="episodes__section">
+        <div class="season__container">
+          <div class="season__titleBox">
+            <h1 class="season__title">Seasons</h1>
+          </div>
+          <div class="season__numberBox">
+            <!-- <button class="season__number">Season 1</button> -->
+          </div>
+        </div>
+        <div class="episode__container">
+          <div class="episode__titleBox">
+            <h1 class="episode__title">Episodes</h1>
+          </div>
+          <div class="episode__numberBox">
+            <!-- <button class="episode__number">Episode 1</button> -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/watch.js"></script>
+  </body>
+</html>

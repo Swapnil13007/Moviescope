@@ -1,0 +1,105 @@
+.video__section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--nav-color); */
+}
+
+.video__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.video {
+  width: 100%;
+  padding: 1%;
+  aspect-ratio: 1.777;
+  border-radius: 2rem;
+}
+
+.episodes__section {
+  display: none;
+}
+
+.season__container,
+.episode__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.season__titleBox,
+.episode__titleBox {
+  width: 100%;
+  height: 6rem;
+  padding-left: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+.season__title,
+.episode__title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-family: var(--ubuntu-font);
+  color: transparent;
+  background: linear-gradient(90deg, var(--nav-color), var(--nav-color2));
+  -webkit-background-clip: text;
+  animation: L1 1s ease;
+}
+.season__numberBox {
+  padding-left: 1.6rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.episode__numberBox {
+  padding-left: 1.6rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.season__number,
+.episode__number {
+  background-color: var(--nav-color);
+  color: white;
+  padding: 1% 2%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 0.4rem;
+  box-shadow: 4px 4px 8px var(--nav-color2);
+  border: none;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+}
+.episode__number {
+  height: 4rem;
+}
+.season__number:hover,
+.episode__number:hover,
+.season__number:focus,
+.episode__number:focus {
+  outline: none;
+  scale: 1.05;
+}
+.season__number:active,
+.episode__number:active {
+  scale: 1;
+  box-shadow: none;
+  border: none;
+}
+.season__number:disabled,
+.episode__number:disabled {
+  scale: 1;
+  color: var(--nav-color);
+  background-color: var(--nav-color2);
+  box-shadow: none;
+  cursor: not-allowed;
+}

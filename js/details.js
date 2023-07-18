@@ -2,20 +2,29 @@ const APIKey = "93ac677313f294316aab34b8d4ec8917";
 const YtKey = "AIzaSyBI5os32tm3KM6tMxMloDrTXOfNbWJcIfc";
 const searchBox = document.querySelector(".searchBox__input");
 const searchBtn = document.querySelector(".searchBox__btn");
+const play = document.querySelector(".btn__play");
+
+let movId = sessionStorage.getItem("movId");
+let showId = sessionStorage.getItem("showId");
+let apiUrl = "";
 
 searchBtn.addEventListener("click", (evt) => {
   sessionStorage.setItem("movieName", searchBox.value);
 });
 
-let movId = sessionStorage.getItem("movId");
-let showId = sessionStorage.getItem("showId");
-let playUrl = "";
-let apiUrl = "";
+play.addEventListener("click", (evt) => {
+  if (movId) {
+    localStorage.removeItem("showId");
+    localStorage.setItem("movId", movId);
+  } else {
+    localStorage.removeItem("movId");
+    localStorage.setItem("showId", showId);
+  }
+});
 
 const setDetails = (data) => {
   const backImg = document.querySelector(".backdrop");
   const frontImg = document.querySelector(".frontImage__img");
-  const play = document.querySelector(".btn__play");
 
   let backUrl = `https://image.tmdb.org/t/p/w1280${data.backdrop_path}`;
   let frontUrl = `https://image.tmdb.org/t/p/w342${data.poster_path}`;
@@ -42,7 +51,7 @@ const setDetails = (data) => {
 
   overview.innerHTML = `${data.overview}`;
 
-  play.href = `${playUrl}${data.id}&color=4e1d77`;
+  // play.href = `${playUrl}${data.id}&color=4e1d77`;
 };
 
 const checkRestricted = async (videoId) => {
@@ -242,11 +251,9 @@ const getDetails = async (url) => {
 
 if (movId) {
   apiUrl = `https://api.themoviedb.org/3/movie/${movId}?api_key=${APIKey}&language=en-US&append_to_response=videos,credits,recommendations,reviews`;
-  playUrl = "https://vidsrc.me/embed/movie?tmdb=";
   getDetails(apiUrl);
 } else if (showId) {
   apiUrl = `https://api.themoviedb.org/3/tv/${showId}?api_key=${APIKey}&language=en-US&append_to_response=videos,credits,recommendations,reviews`;
-  playUrl = "https://vidsrc.me/embed/tv?tmdb=";
   getDetails(apiUrl);
 } else {
 }
